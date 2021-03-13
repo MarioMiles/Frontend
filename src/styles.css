@@ -1,0 +1,11 @@
+.card{
+  box-shadow: 0 0 10px rgba(194, 35, 35, 0.1);
+  border-radius: 0.4em;
+}
+body{
+  background: url(assets/img/fondo.jpg) no-repeat center center fixed;
+  background-size: 120%;
+}
+button{
+  background-color: darkred;
+}

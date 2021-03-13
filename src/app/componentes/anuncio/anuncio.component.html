@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center text-white">
+    <div class="col">
+      <form [formGroup]="formMascota" (submit)="cargarMascota()">
+        <p>Tipo de animal:</p>
+        <input class="form-control" type="text" formControlName="tipoAni" placeholder="Tipo"><br>
+        <p>Nombre:</p>
+        <input class="form-control" type="text" formControlName="nombre" placeholder="Nombre"><br>
+        <p>Peso:</p>
+        <input class="form-control" type="text" formControlName="peso" placeholder="Peso"><br>
+        <br>
+        <button class="btn btn-dark" type="submit">Registrar mascota</button>
+      </form>
+       
+        
+       
+        
+      
+    </div>
+  </div>
+</div>
+
+
+    

@@ -1,0 +1,44 @@
+<div id="header">
+<p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: wheat;">Bienvenid@ a la ventana de adopciones, aquí podrá poner en adopcion a su mascota o adoptar una que lo necesite.</p>
+</div>        
+    
+<div class="container" *ngFor="let mascota of mascota">
+    
+    <ul>
+        <li>Nombre: {{mascota.nombre}}</li>
+        <li>Tipo de animal: {{mascota.tipoAni}}</li>
+        <li>Peso(en Kg): {{mascota.peso}}</li>
+        <img src="{{mascota.foto}}">
+        <button (click)='eliminarMascota(mascota.id)'>Eliminar</button>
+        <button (click)='mostrarEditar=!mostrarEditar'>Editar mascota</button>
+    </ul>
+    <div class="card" *ngIf='mostrarEditar'>
+        <form [formGroup]="formMascota" (submit)="editarMascota()">
+            <div class="form-row mb-1">
+              <div class="form-group col-md-3">
+                <label for="nombre">Nombre:</label>
+                <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="tipoAni">Tipo de animal:</label>
+                <input class="form-control" type="text" placeholder="Tipo de animal" id="tipoAni" formControlName="tipoAni">
+              </div>
+            </div>
+            <div class="form-row mb-1">
+              <div class="form-group col-md-2">
+                <label for="Peso:">Peso (en Kg):</label>
+                <input class="form-control" type="number" placeholder="Peso" id="peso" formControlName="peso">
+              </div>
+              
+              
+            </div>
+            <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formMascota.valid">Guardar cambios</button>
+          </form>
+            <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+        </div>
+    
+
+</div>
+    
+
+<button><a routerLink="/anuncio">Añade a tu mascota</a></button>

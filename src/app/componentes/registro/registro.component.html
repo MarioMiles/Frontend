@@ -1,0 +1,132 @@
+<div class="row justify-content-center mb-3">
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header">Formulario con FormControl y FormGroup</div>
+      <div class="card-body">
+        <form [formGroup]="formRegister" (submit)="evaluaForm()">
+          <div class="form-row mb-1">
+            <div class="form-group col-md-3">
+              <label for="nombre">Nombre:</label>
+              <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="apellidos">Apellidos:</label>
+              <input class="form-control" type="text" placeholder="Apellidos" id="apellidos" formControlName="apellidos">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="dni">DNI:</label>
+              <input class="form-control" type="text" placeholder="DNI" id="dni" formControlName="dni">
+            </div>
+          </div>
+          <div class="form-row mb-1">
+            <div class="form-group col-md-3">
+              <label for="telefono">Teléfono:</label>
+              <input class="form-control" type="number" placeholder="Teléfono" id="telefono" formControlName="telefono">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">E-Mail:</label>
+              <input class="form-control" type="text" placeholder="E-Mail" id="email" formControlName="email">
+            </div>
+            
+            <div class="form-group col-md-3">
+              <label for="password">Contraseña:</label>
+              <input class="form-control" type="text" placeholder="Contraseña" id="password" formControlName="password">
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formRegister.valid">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">Estado del Formulario (FormGroup)</div>
+      <div class="card-body">
+        <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister.untouched">
+          <strong>Introduce los valores en el Formulario</strong>
+        </div>
+        <div class="alert alert-danger m-n2" role="alert" *ngIf="formRegister.invalid && formRegister.touched">
+          <p>Nombre: {{formRegister.get('nombre').errors | json}}</p>
+          <p>Apellidos: {{formRegister.get('apellidos').errors | json}}</p>
+          <p>DNI: {{formRegister.get('dni').errors | json}}</p>
+          <p>Teléfono: {{formRegister.get('telefono').errors | json}}</p>
+          <p>E-Mail: {{formRegister.get('email').errors | json}}</p>
+          <p>Contraseña: {{formRegister.get('password').errors | json}}</p>
+        </div>
+        <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister.valid">
+          <strong>El formulario es valido</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header">Formulario con FormBuilder</div>
+      <div class="card-body">
+        <form [formGroup]="formRegister2" (submit)="evaluaForm()">
+          <div class="form-row mb-1">
+            <div class="form-group col-md-3">
+              <label for="nombre">Nombre:</label>
+              <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="apellidos">Apellidos:</label>
+              <input class="form-control" type="text" placeholder="Apellidos" id="apellidos" formControlName="apellidos">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="dni">DNI:</label>
+              <input class="form-control" type="text" placeholder="DNI" id="dni" formControlName="dni">
+            </div>
+          </div>
+          <div class="form-row mb-1">
+            <div class="form-group col-md-3">
+              <label for="telefono">Teléfono:</label>
+              <input class="form-control" type="number" placeholder="Teléfono" id="telefono" formControlName="telefono">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">E-Mail:</label>
+              <input class="form-control" type="text" placeholder="E-Mail" id="email" formControlName="email">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="password">Contraseña:</label>
+              <input class="form-control" type="text" placeholder="Contraseña" id="password" formControlName="password">
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formRegister.valid">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">Estado del formulario</div>
+      <div class="card-body">
+        <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister2.untouched">
+          <strong>Introduce los valores en el Formulario</strong>
+        </div>
+        <div class="alert alert-danger m-n2" role="alert" *ngIf="formRegister2.invalid && formRegister2.touched">
+          <p>Nombre: {{formRegister2.get('nombre').errors | json}}</p>
+          <p>Apellidos: {{formRegister2.get('apellidos').errors | json}}</p>
+          <p>DNI: {{formRegister2.get('dni').errors | json}}</p>
+          <p>Teléfono: {{formRegister2.get('telefono').errors | json}}</p>
+          <p>E-Mail: {{formRegister2.get('email').errors | json}}</p>
+          <p>Contraseña: {{formRegister2.get('password').errors | json}}</p>
+        </div>
+        <div class="alert alert-success m-n2" role="alert" *ngIf="formRegister2.valid">
+          <strong>El formulario es valido</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf ="nombre1.invalid && (nombre1.dirty || nombre1.touched)" class="alert alert-danger">
+    <div *ngIf="nombre1.errors.required"> <p>El nombre es requerido</p></div>
+    <div *ngIf="nombre1.errors.minlength"> <p>El nombre tiene que tener al menos 3 caracteres</p></div>
+</div>
+<div *ngIf ="email1.invalid && email1.touched" class="alert alert-danger">
+    <div *ngIf="email1.errors.required"> <p>El e-mail es requerido</p></div>
+    <div *ngIf="email1.errors.email"> <p>Revisa tu e-mail</p></div>
+</div>

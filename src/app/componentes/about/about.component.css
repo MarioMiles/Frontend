@@ -1,0 +1,12 @@
+#caja_info {
+    border: groove;
+    color: wheat;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#caja_inf {
+    border: groove;
+    color: wheat;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}

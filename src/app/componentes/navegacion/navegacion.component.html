@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-sm bg-black" id="nav1"> 
+  <div class="container">
+      <div id="logo">
+        
+        <img src="assets/img/logo1.PNG" width="70" height="60">
+
+        
+      </div>
+    
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <nav class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="{{estiloActivo}}">Home</a>
+            
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/about" routerLinkActive="{{estiloActivo}}">About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/adopciones" routerLinkActive="{{estiloActivo}}">Adopciones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/tuberias" routerLinkActive="{{estiloActivo}}">+ Info</a>
+        </li>
+      
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/listaPerfiles" routerLinkActive="{{estiloActivo}}">Lista de perfiles</a>
+        </li>
+    </nav>
+       
+       <!-- Tab panes -->
+       <div class="tab-content">
+           <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+           <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+           <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+           <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+           <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+       </div>
+       
+       <script>
+           $('#navId a').click(e => {
+               e.preventDefault();
+               $(this).tab('show');
+           });
+       </script>
+    
+        
+        <ul class="navbar-nav mt-2 mt-lg-0">
+            <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/registro" routerLinkActive="{{estiloActivo}}">Registro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="{{estiloActivo}}">Login</a>
+            </li>
+        </ng-template>
+        <ng-template #salir>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/perfil" routerLinkActive="{{estiloActivo}}">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
+            </li>
+        </ng-template>
+        </ul>
+    </div>
+  
+</nav>

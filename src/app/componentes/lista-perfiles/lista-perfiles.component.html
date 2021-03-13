@@ -1,0 +1,19 @@
+<div class="card border-primary">
+  <div class="card-body">
+    <h4 class="card-title">Lista de Usuarios</h4>
+    <ul>
+        <li (click)='usuarioSel = user' *ngFor='let user of usuarios'>{{user.nombre}}{{user.email}}</li>
+    </ul>
+  </div>
+  <div class="card border-primary" *ngIf='usuarioSel'>
+    <img class="card-img-top" src="holder.js/100px180/" alt="">
+    <div class="card-body">
+      <h4 class="card-title">Nombre</h4>
+      <p class="card-text">{{usuarioSel.nombre}}</p>
+      <h4 class="card-title">Apellidos</h4>
+      <p class="card-text">{{usuarioSel.apellidos}}</p>
+      <h4 class="card-title">email</h4>
+      <p class="card-text">{{usuarioSel.email}}</p>
+    </div>
+  </div>
+</div>

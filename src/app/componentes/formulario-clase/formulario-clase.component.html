@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">Formulario con ngModel</div>
+      <div class="card-body">
+        <div class="input-group">
+          <input class="form-control" type="text" placeholder="nombre" [(ngModel)]="user.nombre">
+          <input class="form-control" type="text" placeholder="apellido" [(ngModel)]="user.apellido">
+          <input class="form-control" type="number" placeholder="edad" [(ngModel)]="user.edad">
+        </div>
+        <button class="btn btn-primary btn-block" (click)= "insertar()" style="background-color: darkred;">Insertar</button>
+        <hr>
+        <h5 class="text-center" *ngIf="!users.length;else existen">No existen notas</h5>
+        <ng-template #existen>
+          <ul class="list-group">
+            <li class="list-group-item" (click)="alertame('Yo soy ' + usern.nombre)" *ngFor = "let usern of users">
+              {{usern.apellido}}, {{usern.nombre}}. {{usern.edad}}
+            </li>
+          </ul>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

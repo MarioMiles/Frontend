@@ -1,0 +1,83 @@
+<div class="row justify-content-center mb-2">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">Estructuras de control con IfElse</div>
+      <div class="card-body">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="verdad" [(ngModel)]="verdad">
+          <label class="form-check-label" for="verdad">
+            Checkbox con la verdad
+          </label>
+        </div>
+        <h5> {{verdad? "Es verdad" : "Es mentira"}} con ternario</h5>
+        <h5 *ngIf = "verdad; else mentira">Es verdad con *ngIf</h5>
+        <ng-template #mentira> <h5>Es mentira con *ngIf</h5> </ng-template>
+        <hr>
+        <label for="edad">
+            <input type="number" id= "edad" [(ngModel)] = "edad">
+        </label>
+        <p>If-Else con SugarCandy</p>
+        <h5 *ngIf = "edad<18; else adulto">Es menor de 18 años</h5>
+        <ng-template #adulto>
+            <ng-container *ngIf = "edad<30; else mayor30"> <h5>Es menor de 30 años</h5></ng-container>
+        </ng-template>
+        <ng-template #mayor30> <h5>Es mayor de 30 años</h5> </ng-template>
+        <p>If-Else con microsintaxis</p>
+        <ng-template [ngIf] ="edad<18" [ngIfElse]= "adulto2" > <h5>Es menor de 18 años</h5> </ng-template>
+        <ng-template #adulto2>
+            <ng-template [ngIf] ="edad<30" [ngIfElse]="mayor30_2"> <h5>Es menor de 30 años</h5> </ng-template>
+        </ng-template>
+        <ng-template #mayor30_2> <h5>Es mayor de 30 años</h5> </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center mb-5">
+  <div class="col-md-10">
+    <div class="card mb-2">
+      <div class="card-header">Estructura For avanzado</div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item"
+            *ngFor="let numero of [0, 11, 22, 33, 44, 55]; let indice=index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count"
+            [ngClass] = "{'text-danger':impar, 'bg-primary text-white':primero}" (click)=muestraLog(indice,impar,primero,ultimo)>
+              En la posición {{indice}} de {{cuenta-1}}, que es {{impar? "impar": "par"}}, está el número {{numero}}
+              {{primero? ", que es el primer elemento del array": ""}} {{ultimo? ", que es el último elemento del array":""}}
+          </li>
+        </ul>
+        <br>
+        <table class="table">
+          <thead><tr><th>Posición</th><th>Par/Impar</th><th>Número</th></tr></thead>
+          <tbody>
+              <tr *ngFor='let numero of [0, 11, 22, 33, 44, 55]; let indice=index; let impar=odd; let primero=first; let ultimo=last; let cuenta=count'
+              [ngClass]="{'text-danger':impar, 'bg-primary text-white':primero}">
+                <td>{{indice}}</td>
+                <td>{{impar? 'impar':'par'}}</td>
+                <td>{{numero}}</td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">Estructuras Switch/Case</div>
+      <div class="card-body">
+        <div class="input-group">
+          <input class="form-control" type="number" placeholder="número 1" [(ngModel)]="num1">
+          <input class="form-control" type="number" placeholder="número 2" [(ngModel)]="num2">
+          <select class="custom-select" [(ngModel)] = "operador">
+            <option *ngFor="let operacion of operaciones"  [value]="operacion"> {{operacion}} </option>
+          </select>
+        </div>
+        <div class="h4 text-center mt-2" [ngSwitch]="operador">
+          <span *ngIf="operador">El resultado de {{operador}} es: </span>
+            <span *ngSwitchCase='"sumar"'>{{num1+num2}}</span>
+            <span *ngSwitchCase='"restar"'>{{num1-num2}}</span>
+            <span *ngSwitchCase='"multiplicar"'>{{num1*num2}}</span>
+            <span *ngSwitchCase='"dividir"'>{{num1/num2}}</span>
+            <span *ngSwitchDefault>Selecciona una operación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
