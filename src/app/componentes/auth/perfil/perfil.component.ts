@@ -22,9 +22,10 @@ export class PerfilComponent implements OnInit {
     password:[''],
     email:['', [Validators.required, Validators.email]],
     telefono:[undefined,[telefonoValido()]],
+    foto:[''],
   })
   formImagen = this.fb.group({
-    imagen: ['', Validators.required]
+    foto: ['', Validators.required]
   })
   constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router) { }
 
@@ -42,6 +43,7 @@ cargarPerfil(): void{
   )
 }
 editarPerfil(): void{
+  console.log(this.formPerfil.value)
   this.servicioUsuario.editarPerfil(this.formPerfil.value).subscribe(
     respuesta => {
       console.log(respuesta)

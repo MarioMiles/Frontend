@@ -1,12 +1,20 @@
 <div class="card">
     <div class="card-header h5 text-center">Tu perfil</div>
     <div class="card-body">
-        <p class="card-text">Nombre: {{perfil.nombre}}</p>
-        <p class="card-text">Apellidos: {{perfil.apellidos}}</p>
-        <p class="card-text">DNI: {{perfil.dni}}</p>
-        <p class="card-text">e-mail: {{perfil.email}}</p>
-        <p class="card-text">Teléfono:{{perfil.telefono}}</p>
-        <img src="{{perfil.imgSrc}}">
+      <div id="columnas">
+      
+        <p class="card-text" style="color: wheat;">Nombre: <b>{{perfil.nombre}}</b></p>
+        <p class="card-text" style="color: wheat;" >Apellidos: <b>{{perfil.apellidos}}</b></p>
+        <p class="card-text"style="color: wheat;">DNI: <b>{{perfil.dni}}</b></p>
+        <p class="card-text"style="color: wheat;">E-mail: <b>{{perfil.email}}</b></p>
+        <p class="card-text"style="color: wheat;">Teléfono: <b>{{perfil.telefono}}</b></p>
+        
+
+
+        <span style="color: wheat;">Foto:</span><br><img src="{{perfil.foto}}" id="fotoP"><br>
+      
+        </div>
+        <br>
         <button (click)='mostrarEditar=!mostrarEditar'>Editar usuario</button>
         <button (click)='mostrarEliminar=!mostrarEliminar'>Eliminar usuario</button>
     </div>
@@ -36,7 +44,7 @@
             <label for="password">Contraseña:</label>
             <input class="form-control" type="text" placeholder="Contraseña" id="password" formControlName="password">
           </div>
-          
+      
         </div>
         <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formPerfil.valid">Guardar cambios</button>
       </form>
@@ -50,11 +58,8 @@
         <button (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
     </div>
 </div> 
-<form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
-  <input type="file" formControlName='imagen' (change)='cambiaImagen($event)'>
-  <button type="submit">Subir imagen de perfil</button>
-</form>
+
 <br>
 <input type="file" (change)='tengoFoto($event)'>
-<button type="button"(click)='subirFoto()'>Subir imagen por parametros</button>
+<button type="button"(click)='subirFoto()'>Subir imagen de perfil</button>
 

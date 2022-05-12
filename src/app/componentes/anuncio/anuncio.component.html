@@ -3,6 +3,7 @@
   <div class="row d-flex justify-content-center align-items-center text-white">
     <div class="col">
       <form [formGroup]="formMascota" (submit)="cargarMascota()">
+       
         <p>Tipo de animal:</p>
         <input class="form-control" type="text" formControlName="tipoAni" placeholder="Tipo"><br>
         <p>Nombre:</p>
@@ -10,8 +11,10 @@
         <p>Peso:</p>
         <input class="form-control" type="text" formControlName="peso" placeholder="Peso"><br>
         <br>
+        <p><b>Para añadir una <span style="color: red;">foto</span> primero crea la mascota.</b></p>
         <button class="btn btn-dark" type="submit">Registrar mascota</button>
       </form>
+      
        
         
        

@@ -4,4 +4,5 @@ export interface Mascota {
     tipoAni?:String
     peso?:String
     foto?:String
+    idUsu?:number
 }

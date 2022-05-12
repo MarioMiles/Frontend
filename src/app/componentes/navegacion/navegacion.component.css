@@ -15,6 +15,16 @@
 }
 a{
   color: wheat;
+
+  
+}
+#fotoP{
+  max-width: 50px;
+  max-height: 40px;
+  border-radius: 50px;
+}
+#an{
+  margin-top: 10px;
 }
 
 

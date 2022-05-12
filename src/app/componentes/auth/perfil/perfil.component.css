@@ -1,0 +1,13 @@
+#columnas{
+    column-count:2;
+    column-gap:20px;
+    column-rule:4px;
+ }
+ #fotoP{
+     max-height: 300px;
+     max-width: 150px;
+     border:1px solid wheat;
+ }
+ 
+
+ 

@@ -13,13 +13,16 @@ import { Mascota } from 'src/app/clases/mascota';
   styleUrls: ['./anuncio.component.css']
 })
 export class AnuncioComponent implements OnInit {
+  User: User={};
   mascota: Mascota={};
-  
+  mostrarEditar: boolean = false
   formMascota= this.fb.group({
     nombre:[''],
     tipoAni:[''],
     peso:[''],
     foto:['']
+    
+    
     
   })
   formImagen = this.fb.group({
@@ -34,6 +37,7 @@ export class AnuncioComponent implements OnInit {
   }
   foto:File;
   tengoFoto(evento): void{
+    console.log(evento)
     if(evento.target.files){
       this.foto=evento.target.files[0]
     }
@@ -41,6 +45,7 @@ export class AnuncioComponent implements OnInit {
   cargarMascota(): void{
     
     this.servicioMascota.insertarMascota(this.formMascota.value).subscribe(
+
      
       respuesta => {
         
@@ -51,44 +56,19 @@ export class AnuncioComponent implements OnInit {
       error => console.log(error)
     )
   }
-  subirImagen():void{
-    const formData = new FormData()
-    formData.append('imagen', this.formImagen.get('imagen').value)
-    this.servicioMascota.subirImagen(formData).subscribe(
-      respuesta=> {
-        console.log(respuesta)
-        
-      },
-        error=>{console.log(error)}
-        
-        
-    )
-  }
+  
   cambiaImagen(evento):void{
     if(evento.target.files){
-      this.formImagen.get('imagen').setValue(evento.target.files[0])
+      this.formImagen.get('foto').setValue(evento.target.files[0])
     }
   }
-  subirFoto(): void{
-    const formData = new FormData()
-    formData.append('imagen', this.foto)
-    this.servicioMascota.subirImagen(formData).subscribe(
-      respuesta=> {
-        console.log(respuesta)
-        
-      },
-        error=>{console.log(error)}
-        
-        
-    )
   
-  }
-  editarMascota(): void{
-    this.servicioUsuario.editarPerfil(this.formMascota.value).subscribe(
+  editarMascota(mascota:Mascota): void{
+    this.servicioMascota.editarMascota(this.formMascota.value).subscribe(
       respuesta => {
         console.log(respuesta)
-        this.cargarMascota()
-        //this.mostrarEditar = false
+        this.cargarMascota
+        this.mostrarEditar = false
       },
       error => console.log(error)
     )

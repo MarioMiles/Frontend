@@ -43,19 +43,38 @@
     </div>
    
     <div class="col-sm-4" id="col3">
-      
-      <h3>Entrar en el refugio:</h3> 
-      
-      <p><a class="boton_personalizado" href="/login" id="login">Entrar</a></p>
-      <p>¿No estás registrado? ¡Únete!</p>
-      <p><a class="boton_personalizado" href="/registro" id="registrarse">Registrarse</a></p>
-
+     
+       
+      <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+        <h3>Entrar en el refugio:</h3>
+        <p><a class="boton_personalizado" href="/login" id="login">Entrar</a></p>
+        <p>¿No estás registrado? ¡Únete!</p>
+        <p><a class="boton_personalizado" href="/registro" id="registrarse">Registrarse</a></p>
+        
+      </ng-template>
+      <ng-template #salir>
+        <div class="card-header h3 text-center">Tu perfil</div>
+    <div class="card-body">
+        <p class="card-text">Nombre: <b>{{perfil.nombre}}</b></p>
+        <p class="card-text">Apellidos: <b>{{perfil.apellidos}}</b></p>
+        <p class="card-text">DNI: <b>{{perfil.dni}}</b></p>
+        <p class="card-text">E-mail: <b>{{perfil.email}}</b></p>
+        <p class="card-text">Teléfono:<b>{{perfil.telefono}}</b></p>
+        <img src="{{perfil.imgSrc}}">
+        <a class="nav-link" routerLink='/perfil'id="an" style="text-align: center;">Mi perfil</a>
+       
     </div>
+
+      </ng-template>
+       
+      
+
+    
   
   </div>
 </div>
 
-
+</div>
 
 </body>
 

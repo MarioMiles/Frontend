@@ -52,19 +52,28 @@
         <ul class="navbar-nav mt-2 mt-lg-0">
             <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/registro" routerLinkActive="{{estiloActivo}}">Registro</a>
+                <a class="nav-link" routerLink="/registro" routerLinkActive="{{estiloActivo}}" id="an">Registro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/login" routerLinkActive="{{estiloActivo}}">Login</a>
+                <a class="nav-link" routerLink="/login" routerLinkActive="{{estiloActivo}}" id="an">Login</a>
             </li>
         </ng-template>
         <ng-template #salir>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/perfil" routerLinkActive="{{estiloActivo}}">Perfil</a>
+                <a class="nav-link" routerLink="/perfil" routerLinkActive="{{estiloActivo}}"id="an">Perfil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="doLogout()" routerLink='.'>Logout</a>
+                <a class="nav-link" (click)="doLogout()" routerLink='.'id="an">Logout</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"><img src={{perfil.foto}} id="fotoP"></a>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="an">{{perfil.nombre}}</a>
+                
+            </li>
+            
         </ng-template>
         </ul>
     </div>

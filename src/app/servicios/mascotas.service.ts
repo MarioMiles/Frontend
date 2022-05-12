@@ -19,17 +19,21 @@ export class MascotasService {
     return this.http.get(url)
     
   }
-  subirImagen( entrada):Observable<any>{
-    //return this.http.post(url+'images/'+'?id='+id, entrada)
-   return this.http.post(url+'images', entrada);
+  subirImagen(id:number, entrada):Observable<any>{
+    console.log(id)
+   return this.http.post(url+'image/'+id, entrada)
+   
+  // return this.http.post(url+'image/', entrada);
+  
   }
+  
 
   leerNota(id:number): Observable<any>{
     return this.http.get(url+id)
   }
 
-  editarMascota(mascota): Observable<any>{
-    return this.http.put(url, mascota)
+  editarMascota(id:number): Observable<any>{
+    return this.http.put(url,id)
   }
 
   eliminarMascota(id:number): Observable<any>{

@@ -1,5 +1,22 @@
 div{
-    border: groove;
+    border: 1px groove;
     color: wheat;
     background-color: rgba(0, 0, 0, 0.3);;
 }
+.carta{
+    background-color: burlywood;
+    border:1px solid;
+}
+.fotoMascota{
+    max-width: 150px;
+    max-height: 300px;
+    border: 2px solid wheat;
+}
+#columnas{
+    column-count:2;
+    column-gap:20px;
+    column-rule:4px;
+    border: 1px solid wheat;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+ }

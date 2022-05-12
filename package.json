@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "-": "^0.0.1",
     "@angular/animations": "~11.0.4",
     "@angular/common": "~11.0.4",
     "@angular/compiler": "~11.0.4",
@@ -21,7 +22,10 @@
     "@angular/router": "~11.0.4",
     "bootstrap": "^4.6.0",
     "font-awesome": "^4.7.0",
+    "http": "^0.0.1-security",
     "jquery": "^3.5.1",
+    "js": "^0.1.0",
+    "parser": "^0.1.4",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

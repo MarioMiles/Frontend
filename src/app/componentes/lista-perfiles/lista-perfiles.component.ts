@@ -10,6 +10,7 @@ import { User } from 'src/app/clases/user';
 export class ListaPerfilesComponent implements OnInit {
   usuarios: User[]
   usuarioSel: User
+  perfil: User = {}
   constructor(private servicioUsuario:UserService) { }
 
   ngOnInit(): void {
@@ -26,5 +27,16 @@ obtenerUsuario(): void{
     }
   )
 }
+cargarPerfil(): void{
+  this.servicioUsuario.obtenerPerfil().subscribe(
+    respuesta => {
+      console.log(respuesta)
+      this.usuarioSel = respuesta
+      
+    },
+    error => console.log(error)
+  )
+}
+
 
 }

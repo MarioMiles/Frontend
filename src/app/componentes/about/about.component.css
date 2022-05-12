@@ -3,10 +3,12 @@
     color: wheat;
     width: 50%;
     background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 #caja_inf {
     border: groove;
     color: wheat;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
 }

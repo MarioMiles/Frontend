@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
         console.log(respuesta)
         this.servicioUsuario.guardarToken(respuesta)
         this.irHacia.navigate(['/perfil'])
+        location.reload()
       },
       error => {
         console.log(error)
