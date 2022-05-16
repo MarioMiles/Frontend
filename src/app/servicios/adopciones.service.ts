@@ -5,14 +5,17 @@ import { Observable } from 'rxjs';
 import { Mascota } from  '../clases/mascota';
 import { User } from '../clases/user';
 import { Adopcion } from '../clases/adopcion';
-const url = 'http://localhost/backendphp/mascotas/'
+const url = 'http://localhost/backendphp/adopciones/'
 @Injectable({
   providedIn: 'root'
 })
 export class AdopcionesService {
 
   constructor(private http:HttpClient) { }
-  insertarAdopcion(adopcion:Adopcion): Observable<any>{
-    return this.http.post(url, adopcion)
+ 
+  comenzarAdopcion(id:number):Observable<any>{
+    console.log(url+id)
+    return this.http.post(url+'confirmar/', id)
+    
   }
 }

@@ -24,6 +24,9 @@ import { EnviarTokenInterceptor } from './auth/enviar-token.interceptor';
 import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
 import { AdopcionesComponent } from './componentes/adopciones/adopciones.component';
 import { AnuncioComponent } from './componentes/anuncio/anuncio.component';
+import { MisAdopcionesComponent } from './componentes/mis-adopciones/mis-adopciones.component';
+import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/confirmar-adopcion.component';
+
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { AnuncioComponent } from './componentes/anuncio/anuncio.component';
     PerfilComponent,
     ListaPerfilesComponent,
     AdopcionesComponent,
-    AnuncioComponent
+    AnuncioComponent,
+    MisAdopcionesComponent,
+    ConfirmarAdopcionComponent
    
   ],
   imports: [

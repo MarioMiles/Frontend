@@ -1,0 +1,18 @@
+#fotoM{
+    max-width: 200px;
+    max-height: 100px;
+}
+div{
+    border: 1px groove;
+    color: wheat;
+    background-color: rgba(0, 0, 0, 0.3);;
+}
+.carta{
+    background-color: burlywood;
+    border:1px solid;
+}
+#columnas{
+    column-count:3;
+    column-gap:20px;
+    column-rule:4px;
+ }

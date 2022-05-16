@@ -20,7 +20,7 @@ export class MascotasService {
     
   }
   subirImagen(id:number, entrada):Observable<any>{
-    console.log(id)
+    console.log(url+'image/'+id, entrada)
    return this.http.post(url+'image/'+id, entrada)
    
   // return this.http.post(url+'image/', entrada);
@@ -45,5 +45,12 @@ export class MascotasService {
 
   buscarNotas(entrada:string): Observable<any>{
     return this.http.get(url +'?busqueda='+ entrada)
+  }
+  misMascotas(idUsu:number): Observable<any>{
+    return this.http.get(url +'misMascotas/'+idUsu)
+  }
+  comenzarAdopcion(id:number):Observable<any>{
+   
+    return this.http.post(url+"confirmar/"+ id, id)
   }
 }

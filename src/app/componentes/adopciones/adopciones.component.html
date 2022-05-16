@@ -1,24 +1,26 @@
 <div id="header">
 <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: wheat;">Bienvenid@ a la ventana de adopciones, aquí podrá poner en adopcion a su mascota o adoptar una que lo necesite.</p>
 </div>        
-    
-<div class="container" *ngFor="let mascota of mascota">
+<strong style="background-color: red; color: black; justify-content: center;">{{mensaje}}</strong>
+<div class="container" *ngFor="let mascota of mascota;">
   <div id="columnas" style="margin-top: 30px">
       
         <li>Nombre: {{mascota.nombre}}</li>
         <li>Tipo de animal: {{mascota.tipoAni}}</li>
         <li>Peso(en Kg): {{mascota.peso}}</li>
-        
+        <li>Adoptado: {{mascota.adoptado}}</li>
         <img class="fotoMascota"src="{{mascota.foto}}"><br>
         <input type="file" (change)='tengoFoto($event)' style="margin-top: 25px;">
+        
         <button type="button"(click)='subirFoto(mascota.id)'style="background-color: white;margin-top: 25px; ">Subir imagen</button>
         <br>
-       
+        
       </div>
       
       
       <button (click)='eliminarMascota(mascota.id)' style="margin-bottom: 25px;">Eliminar</button>
         <button (click)='mostrarEditar=!mostrarEditar' style="background-color: yellow;">Editar mascota</button>
+        
         
      
         
@@ -89,3 +91,4 @@
   <button style="margin-left:30px;"><a routerLink="/anuncio">Añade a tu mascota</a></button>
 </ng-template>
 </div>
+

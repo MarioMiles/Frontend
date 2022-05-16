@@ -1,0 +1,54 @@
+<div class="carta">
+    <ul>
+      <li style="color: black;"(click)='mascotaSel = mascota' *ngFor='let mascota of mascota'>Nombre: <b>{{mascota.nombre}}.</b> <br> Tipo de animal: <b>{{mascota.tipoAni}}.</b></li>
+    </ul>
+    
+    <div class="card border-primary" *ngIf='mascotaSel'>
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-4" id="col1">
+              <h5>Nombre:</h5>
+              <p>{{mascotaSel.nombre}}</p>
+              <h5>Tipo de animal:</h5>
+              <p>{{mascotaSel.tipoAni}}</p>
+              </div>
+              <div class="col-sm-4" id="col2">
+                <h4 class="card-title">Peso: </h4>
+                <p class="card-text">{{mascotaSel.peso}}</p>
+                
+    
+            </div> 
+              <div class="col-sm-4" id="col3">
+                <h4 class="card-title">Foto: </h4>
+        <p class="card-text"><img src={{mascotaSel.foto}} style="max-width:200px;margin-bottom: 20px;"></p>
+        <button type=button  (click)="confirmar(mascotaSel.id, mascotaSel.nombre, mascotaSel.tipoAni)">Adoptar</button>
+        
+        
+        
+                 
+                
+            </div> 
+            </div>
+            
+            </div>
+    </div>
+    
+    </div>
+    
+    
+            
+    
+    <div style="padding:5px;" class="sub">
+        <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
+          <p style="color: black;">Necesitas estar logeado para añadir una mascota</p>
+          <p><a class="boton_personalizado" href="/login" id="login">Entrar</a></p>
+          <p style="color: black;">¿No estás registrado? ¡Únete!</p>
+          <p><a class="boton_personalizado" href="/registro" id="registrarse">Registrarse</a></p>
+          
+        </ng-template>
+        </div>
+        <ng-template #salir>
+          <button style="margin-left:30px; justify-content: center;"><a routerLink="/anuncio">Añade a tu mascota</a></button>
+        </ng-template>
+        
+        

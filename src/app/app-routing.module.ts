@@ -14,6 +14,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ListaPerfilesComponent } from './componentes/lista-perfiles/lista-perfiles.component';
 import { AdopcionesComponent } from './componentes/adopciones/adopciones.component';
 import { AnuncioComponent } from './componentes/anuncio/anuncio.component';
+import { MisAdopcionesComponent } from './componentes/mis-adopciones/mis-adopciones.component';
+import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/confirmar-adopcion.component';
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -26,8 +28,11 @@ const routes: Routes = [
   {path: "login", component:LoginComponent},
   {path: "perfil", component:PerfilComponent, canActivate:[UserRouterGuard]},
   {path: "listaPerfiles", component:ListaPerfilesComponent},
-  {path: "adopciones", component:AdopcionesComponent},
+  {path: "misAnimales", component:AdopcionesComponent},
   {path: "anuncio", component:AnuncioComponent},
+  {path: "adopciones", component:MisAdopcionesComponent},
+  {path: "confirmar", component:ConfirmarAdopcionComponent},
+
   {path: "**", component: HomeComponent}
 ];
 

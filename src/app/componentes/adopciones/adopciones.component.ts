@@ -15,8 +15,9 @@ import { identifierName } from '@angular/compiler';
   styleUrls: ['./adopciones.component.css']
 })
 export class AdopcionesComponent implements OnInit {
-  
+  perfil: User = {}
   mascota: Mascota[]=[];
+  masc: Mascota = {}
   
   mascotaSel: Mascota
   formMascota= this.fb.group({
@@ -42,15 +43,18 @@ export class AdopcionesComponent implements OnInit {
 
   fnLogged = this.servicioUsuario.isLogged
   constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder,) { }
-
+  
+  
 
   ngOnInit(): void {
+    //this.obtenerMascotas();
     
-    this.obtenerMascotas();
+    this.misMascotas(this.perfil.id);
     
   }
  
-    
+  mensaje: string=''
+  
   id:number
   foto: File 
   mostrarEditar: boolean = false
@@ -68,7 +72,11 @@ export class AdopcionesComponent implements OnInit {
         
         
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.mensaje=error.error.error
+      }
+      
     )
     
   }
@@ -79,7 +87,11 @@ obtenerMascotas():void{
       console.log(respuesta);
       this.mascota=respuesta;
       
-    }, error=>console.log(error)
+    }, error => {
+      console.log(error)
+      this.mensaje=error.error.error
+    }
+    
     
   )
 }
@@ -88,6 +100,9 @@ obtenerMascotas():void{
 cambiaImagen(evento):void{
   if(evento.target.files){
     this.formImagen.get('imagen').setValue(evento.target.files[0])
+  } error => {
+    console.log(error)
+    this.mensaje=error.error.error
   }
 }
 
@@ -103,10 +118,17 @@ subirFoto(id:number): void{
   this.servicioMascotas.subirImagen(id, formData).subscribe(
     respuesta=> {
       console.log(respuesta)
-      location.reload();
+      
+      location.reload()
+      
+      
       
     },
-      error=>{console.log(error)}
+    error => {
+      console.log(error)
+      this.mensaje=error.error.error
+      window.scrollTo(0, 0)
+    }
       
       
   )
@@ -129,7 +151,11 @@ editarMascota(id:number): void{
       this.cargarMascota()
       this.mostrarEditar = false
     },
-    error => console.log(error)
+    error => {
+      console.log(error)
+      this.mensaje=error.error.error
+      window.scrollTo(0, 0)
+    }
   )
 }
 /*editarMascota(id:number): void{
@@ -156,5 +182,24 @@ eliminarMascota(id:number): void{
     },
     error => {console.log(error)}
   )
+}
+misMascotas(idUsu:number){
+  this.servicioMascotas.misMascotas(idUsu).subscribe(
+    respuesta =>{
+      console.log(respuesta)
+      this.mascota=respuesta; 
+        
+     }
+  )
+}
+comenzarAdopcion(id:number){
+  this.servicioMascotas.comenzarAdopcion(id).subscribe
+  console.log(id)
+  respuesta =>{
+    console.log(respuesta)
+    this.mascota=respuesta; 
+      
+   }
+
 }
 }
