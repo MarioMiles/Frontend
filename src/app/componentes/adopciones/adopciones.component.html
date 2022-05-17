@@ -5,7 +5,7 @@
 <div class="container" *ngFor="let mascota of mascota;">
   <div id="columnas" style="margin-top: 30px">
       
-        <li>Nombre: {{mascota.nombre}}</li>
+        <h3>{{mascota.nombre}}</h3>
         <li>Tipo de animal: {{mascota.tipoAni}}</li>
         <li>Peso(en Kg): {{mascota.peso}}</li>
         <li>Adoptado: {{mascota.adoptado}}</li>
@@ -33,17 +33,17 @@
           
               <div class="form-group col-md-3">
                 <label for="nombre">Nombre:</label>
-                <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre" style="margin-bottom: 10px; text-align: center;">
+                <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre" style="margin-bottom: 10px;">
               </div>
               <div class="form-group col-md-6">
                 <label for="tipoAni">Tipo de animal:</label>
-                <input class="form-control" type="text" placeholder="Tipo de animal" id="tipoAni" formControlName="tipoAni"style="margin-bottom: 10px;text-align: left;">
+                <input class="form-control" type="text" placeholder="Tipo de animal" id="tipoAni" formControlName="tipoAni"style="margin-bottom: 10px;">
               </div>
               
             
               <div class="form-group col-md-2">
                 <label for="Peso:">Peso (en Kg):</label>
-                <input class="form-control" type="number" placeholder="Peso" id="peso" formControlName="peso"style="margin-bottom: 10px;text-align: center;">
+                <input class="form-control" type="number" placeholder="Peso" id="peso" formControlName="peso"style="margin-bottom: 10px;">
               </div>
              
              
@@ -59,24 +59,7 @@
 
 </div>
 <div class="carta">
-<ul>
-  <li style="color: black;"(click)='mascotaSel = mascota' *ngFor='let mascota of mascota'>Nombre: <b>{{mascota.nombre}}.</b> <br> Tipo de animal: <b>{{mascota.tipoAni}}.</b></li>
-</ul>
 
-<div class="card border-primary" *ngIf='mascotaSel'>
-<img class="card-img-top" src="holder.js/100px180/" alt="">
-<div class="card-body">
-<h4 class="card-title">Nombre: </h4>
-<p class="card-text">{{mascotaSel.nombre}}</p>
-<h4 class="card-title">Tipo de Animal: </h4>
-<p class="card-text">{{mascotaSel.tipoAni}}</p>
-<h4 class="card-title">Peso: </h4>
-<p class="card-text">{{mascotaSel.peso}}</p>
-<h4 class="card-title">Foto: </h4>
-<p class="card-text"><img src={{mascotaSel.foto}}></p>
-
-</div>
-</div>
 
 <div style="padding:5px;" class="sub">
 <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>

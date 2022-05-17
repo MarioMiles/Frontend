@@ -2,7 +2,7 @@
   <div class="container">
       <div id="logo">
         
-        <img src="assets/img/logo1.PNG" width="70" height="60">
+        <a href="/home"><img src="assets/img/logo1.PNG" width="70" height="60"></a>
 
         
       </div>
@@ -20,9 +20,7 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="/about" routerLinkActive="{{estiloActivo}}">About</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/misAnimales" routerLinkActive="{{estiloActivo}}">Tus animales</a>
-        </li>
+        
       
         <li class="nav-item">
             <a class="nav-link" routerLink="/listaPerfiles" routerLinkActive="{{estiloActivo}}">Lista de perfiles</a>
@@ -32,15 +30,7 @@
         </li>
     </nav>
        
-       <!-- Tab panes -->
-       <div class="tab-content">
-           <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
-           <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
-           <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
-           <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
-           <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
-       </div>
-       
+    
        <script>
            $('#navId a').click(e => {
                e.preventDefault();
@@ -61,16 +51,19 @@
         <ng-template #salir>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/perfil" routerLinkActive="{{estiloActivo}}"id="an">Perfil</a>
+                <ul style="border-radius:10px; background-color: rgb(36, 35, 35); padding:3px;">
+                    <a class="nav-link" routerLink="/misAnimales">Tus animales</a>
+                    <a class="nav-link" (click)="doLogout()" routerLink='.' style=" text-align: center;">Logout</a>
+                    </ul>
+                        
             </li>
+           
             <li class="nav-item">
-                <a class="nav-link" (click)="doLogout()" routerLink='.'id="an">Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"><img src={{perfil.foto}} id="fotoP"></a>
+                <img src={{perfil.foto}} id="fotoP">
                 
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="an">{{perfil.nombre}}</a>
+                <a class="nav-link" routerLink="/perfil" id="an">{{perfil.nombre}}</a>
                 
             </li>
             

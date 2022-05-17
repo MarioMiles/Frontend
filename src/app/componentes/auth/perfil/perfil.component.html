@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" style="margin-top: 45px;">
     <div class="card-header h5 text-center">Tu perfil</div>
     <div class="card-body">
       <div id="columnas">
@@ -15,7 +15,7 @@
       
         </div>
         <br>
-        <button (click)='mostrarEditar=!mostrarEditar'>Editar usuario</button>
+        <button style="background-color: yellow;"(click)='mostrarEditar=!mostrarEditar'>Editar usuario</button>
         <button (click)='mostrarEliminar=!mostrarEliminar'>Eliminar usuario</button>
     </div>
 </div>
@@ -61,5 +61,5 @@
 
 <br>
 <input type="file" (change)='tengoFoto($event)'>
-<button type="button"(click)='subirFoto()'>Subir imagen de perfil</button>
+<button type="button"style="background-color: blue;"(click)='subirFoto()'>Subir imagen de perfil</button>
 

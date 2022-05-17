@@ -1,6 +1,6 @@
 #titulo{
-  font-family: serif;
-	color: white;
+  
+	color: wheat;
 	align-items: center;
 	justify-content: center;
 	height: 120px; 
@@ -41,26 +41,27 @@
  
 }
 #col1{
-  color: white;
+  color: wheat;
 	border-style: solid;
 	border-right-width: thick;
-	border-right-color: white;
+	
 	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 5px;
 
 }
 #col3{
-  color: white;
+  color: wheat;
 	border-style: solid;
 	border-right-width: thick;
-	border-right-color: white;
+	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
 #col2{
-  color: white;
+  color: wheat;
 	border-style: solid;
 	border-right-width: thick;
-	border-right-color: white;
+	border-radius: 5px;
 	background-color: rgba(0, 0, 0, 0.7);
 }
 #registrarse{
@@ -107,8 +108,8 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #095a0c;
+  color: rgb(218, 18, 18);
 }
 /*COMIENZO 2º PAGINA*/
 #cabecera{
@@ -117,16 +118,29 @@
 	width: 100%;
 }
 #columna_ad{
-	border-style: solid;
+	
 	padding: 25px 0;
 	margin: 0;
 	display: flex, inline-block;
 
 }
 #columna_ac{
-	border-style: solid;
+	
 	padding: 25px 0;
 	margin: 0;
 	
 	display: flex, inline-block;
 }
+*{
+	font-size: 14px;
+	font-family: "Roboto";
+}
+a:hover {
+	background-color: rgb(223, 193, 61);
+	color: black;
+  }
+  a{
+	 margin-left: 40px;
+	  border-radius: 20px;
+	  margin-right: 40px;
+  }

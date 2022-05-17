@@ -6,6 +6,7 @@ div{
 .carta{
     background-color: burlywood;
     border:1px solid;
+    margin-bottom: 50px;
 }
 .fotoMascota{
     max-width: 150px;
@@ -19,4 +20,7 @@ div{
     border: 1px solid wheat;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
+ }
+ h3{
+     color: rgb(194, 118, 19);
  }

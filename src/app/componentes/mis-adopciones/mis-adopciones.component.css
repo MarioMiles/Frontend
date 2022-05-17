@@ -3,16 +3,47 @@
     max-height: 100px;
 }
 div{
-    border: 1px groove;
+    
     color: wheat;
-    background-color: rgba(0, 0, 0, 0.3);;
+    
 }
 .carta{
     background-color: burlywood;
     border:1px solid;
+ 
 }
 #columnas{
     column-count:3;
     column-gap:20px;
     column-rule:4px;
  }
+ p{
+     color: rgb(235, 245, 179);
+     cursor:grab;
+ }
+ li{
+     display: block;
+     cursor: pointer;
+     max-width: 150px;
+     border-radius: 10px;
+     border-bottom: 3px solid;
+     border-left: 2px solid;
+     padding: 5px;
+ }
+ li:hover{
+     background-color:rgb(238, 186, 17);
+     border:1px solid;
+     box-shadow: 1px 1px 0px 0px;
+ }
+ #container{
+     width: max-content;
+ }
+ li:active{
+     display: block;
+    background-color:rgb(243, 247, 28);
+    border:1px solid;
+    box-shadow: 2px 2px 0px 0px;
+ }
+
+
+ 

@@ -1,44 +1,51 @@
+
 <div class="carta">
+  <div class="row">
+    <div class="col-sm-6" id="col1">
     <ul>
-      <li style="color: black;"(click)='mascotaSel = mascota' *ngFor='let mascota of mascota'>Nombre: <b>{{mascota.nombre}}.</b> <br> Tipo de animal: <b>{{mascota.tipoAni}}.</b></li>
+      <li style="color: black; margin: 10px;"(click)='mascotaSel = mascota' *ngFor='let mascota of mascota'><b>{{mascota.nombre}}.</b> <br> Tipo de animal: <b>{{mascota.tipoAni}}.</b> <br> Peso: <b><b>{{mascota.peso}}.</b></b></li>
+      
     </ul>
+    </div>
+    <strong style="background-color: red; color: black; justify-content: center;">{{mensaje}}</strong>
     
-    <div class="card border-primary" *ngIf='mascotaSel'>
-        <div class="container">
-            <div class="row">
-              <div class="col-sm-4" id="col1">
-              <h5>Nombre:</h5>
-              <p>{{mascotaSel.nombre}}</p>
-              <h5>Tipo de animal:</h5>
+    <div *ngIf='mascotaSel' style="background-color: rgb(29, 21, 7); margin: 10px; max-height: 200px;border-radius: 10px;margin-top: 50px;">
+      
+        <div class="container" style="background-color: rgb(24, 17, 5); border-radius: 10px;">
+          <div class="row" style="border: 2px solid rgb(141, 13, 13); border-radius: 10px; padding: 20px; ">
+            
+              <div class="col-sm-5" id="col1">
+              
+              <span style="color: white; border-bottom: 1px solid; font-size: 18px;">Nombre</span><br><br> <p>{{mascotaSel.nombre}}</p>
+              <span style="color: white; border-bottom: 1px solid; font-size: 15px;">Tipo de Animal</span><br><br>
               <p>{{mascotaSel.tipoAni}}</p>
-              </div>
-              <div class="col-sm-4" id="col2">
-                <h4 class="card-title">Peso: </h4>
+              <span style="color: white; border-bottom: 1px solid; font-size: 18px;">Peso</span><br><br>
                 <p class="card-text">{{mascotaSel.peso}}</p>
-                
+              </div>
+              
+              <div class="col-sm-3" id="col2">
+                <h4 class="card-title" style="font-size:18px;">Foto: </h4>
+                <p class="card-text"><img src={{mascotaSel.foto}} style="max-width:180px;margin-bottom: 20px; border: 1px solid wheat; margin-right: 10px;"></p>
+                <button type=button  (click)="confirmar(mascotaSel.id, mascotaSel.nombre, mascotaSel.tipoAni)">Adoptar</button>
     
-            </div> 
-              <div class="col-sm-4" id="col3">
-                <h4 class="card-title">Foto: </h4>
-        <p class="card-text"><img src={{mascotaSel.foto}} style="max-width:200px;margin-bottom: 20px;"></p>
-        <button type=button  (click)="confirmar(mascotaSel.id, mascotaSel.nombre, mascotaSel.tipoAni)">Adoptar</button>
-        
-        
+            
         
                  
                 
             </div> 
             </div>
+            </div>
             
             </div>
     </div>
     
     </div>
+   
     
     
             
     
-    <div style="padding:5px;" class="sub">
+    <div style="padding:5px; margin-bottom: 50px;" class="sub">
         <ng-template [ngIf]='!fnLogged()' [ngIfElse]='salir'>
           <p style="color: black;">Necesitas estar logeado para añadir una mascota</p>
           <p><a class="boton_personalizado" href="/login" id="login">Entrar</a></p>

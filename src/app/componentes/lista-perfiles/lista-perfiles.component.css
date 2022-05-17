@@ -1,4 +1,28 @@
 #card-text:hover{
     cursor: pointer;
-    background-color: blue;
+    
+    background-color: burlywood;
+    color: rgb(128, 90, 19);
+}
+#carta{
+    background-color: burlywood;
+    border:10px solid black;
+    color: rgb(128, 90, 19);
+    margin-top: 50px;
+}
+#carta1{
+    background-color: #352c20;
+    border:10px solid black;
+    color: rgb(128, 90, 19);
+}
+h4{
+    color: black;
+}
+li{
+    cursor: pointer;
+    max-width: 150px;
+    border-radius: 10px;
+}
+li:hover{
+    background-color:rgb(146, 144, 19);
 }

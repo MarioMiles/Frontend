@@ -118,7 +118,7 @@ subirFoto(id:number): void{
   this.servicioMascotas.subirImagen(id, formData).subscribe(
     respuesta=> {
       console.log(respuesta)
-      
+      this.mensaje=respuesta
       location.reload()
       
       

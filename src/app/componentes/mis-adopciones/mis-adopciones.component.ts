@@ -52,16 +52,20 @@ export class MisAdopcionesComponent implements OnInit {
     this.servicioMascotas.comenzarAdopcion(id).subscribe(
     
     respuesta =>{
-      location.reload()
+      location.reload();
       console.log(respuesta)
       this.mascota=respuesta; 
+      this.mensaje=respuesta
       
         
-     }
+     }, error => {
+      console.log(error)
+      this.mensaje=error.error.error
+    }
     )
   }
   confirmar(id:number, nombre:string, tipoAni:string) {
-    if(confirm("Estás a punto de adoptar a la mascota con id: "+id+". Nombre: "+nombre+ ". Tipo de Animal: "+tipoAni)) {
+    if(confirm("Estás a punto de adoptar a la mascota con id: "+id+".Nombre: "+nombre+ ". Tipo de Animal: "+tipoAni)) {
       this.comenzarAdopcion(id)
     }
   }

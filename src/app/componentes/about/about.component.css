@@ -1,14 +1,17 @@
 #caja_info {
-    border: groove;
+    border: 1px solid;
     color: wheat;
     width: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
+    border-radius: 10px;;
 }
 #caja_inf {
-    border: groove;
+    align-self: center;
+    border: 1px solid;
     color: wheat;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
+    border-radius: 10px;
 }

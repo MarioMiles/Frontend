@@ -27,19 +27,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4" id="col1">
-      <h3>¿Quiénes somos?</h3>
-      <p>Somos un grupo de personas preocupadas por el creciente aumento de abandonos Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      <h3 style="color: wheat; text-align: center;font-size:25px; margin-top: 10px;margin-bottom: 15px;">¿Quiénes somos?</h3>
+      <p style="color:white;">Somos un grupo de personas preocupadas por el creciente aumento de abandonos Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <p style="color:white;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     </div>
     <div class="col-sm-4" id="col2">
-      <h3>Contacte con nosotros</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h1 style="color: wheat; font-size:25px;text-align: center; margin-top: 10px;margin-bottom: 15px;">Contacte con nosotros</h1>
+      <p style="color:white;">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p style="color:white;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
     </div>
    
     <div class="col-sm-4" id="col3">
@@ -53,16 +53,17 @@
         
       </ng-template>
       <ng-template #salir>
-        <div class="card-header h3 text-center">Tu perfil</div>
+        <div class="card-header h3 text-center"style="color: wheat;">Tu perfil</div>
     <div class="card-body">
-        <p class="card-text">Nombre: <b>{{perfil.nombre}}</b></p>
-        <p class="card-text">Apellidos: <b>{{perfil.apellidos}}</b></p>
-        <p class="card-text">DNI: <b>{{perfil.dni}}</b></p>
-        <p class="card-text">E-mail: <b>{{perfil.email}}</b></p>
-        <p class="card-text">Teléfono:<b>{{perfil.telefono}}</b></p>
+        <p style="color:white;" class="card-text">Nombre: <b>{{perfil.nombre}}</b></p>
+        <p style="color:white;" class="card-text">Apellidos: <b>{{perfil.apellidos}}</b></p>
+        <p style="color:white;" class="card-text">DNI: <b>{{perfil.dni}}</b></p>
+        <p  style="color:white;" class="card-text">E-mail: <b>{{perfil.email}}</b></p>
+        <p style="color:white;" class="card-text">Teléfono:<b>{{perfil.telefono}}</b></p>
         <img src="{{perfil.imgSrc}}">
-        <a class="nav-link" routerLink='/perfil'id="an" style="text-align: center;">Mi perfil</a>
-       
+     
+        <a class="nav-link" routerLink='/perfil'id="an" style="text-align: center; ">Mi perfil</a>
+      
     </div>
 
       </ng-template>
@@ -77,4 +78,5 @@
 </div>
 
 </body>
+
 
