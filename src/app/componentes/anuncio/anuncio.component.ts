@@ -50,7 +50,7 @@ export class AnuncioComponent implements OnInit {
       respuesta => {
         
         console.log(respuesta)
-        this.irHacia.navigate(["/misAnimales"]);
+        this.irHacia.navigate(["/adopciones"]);
         
       },
       error => console.log(error)

@@ -38,6 +38,12 @@ export class AdopcionesComponent implements OnInit {
     id:['']
     
   })
+  formTipo= this.fb.group({
+    tipoAni:[''],
+    
+    
+    
+  })
  
   
 
@@ -54,7 +60,7 @@ export class AdopcionesComponent implements OnInit {
   }
  
   mensaje: string=''
-  
+  tipoAni:string
   id:number
   foto: File 
   mostrarEditar: boolean = false
@@ -150,6 +156,7 @@ editarMascota(id:number): void{
       console.log(respuesta)
       this.cargarMascota()
       this.mostrarEditar = false
+      location.reload()
     },
     error => {
       console.log(error)
@@ -201,5 +208,19 @@ comenzarAdopcion(id:number){
       
    }
 
+}
+confirmar(id:number, nombre:string, tipoAni:string) {
+  if(confirm("Estás a punto de adoptar a la mascota con id: "+id+".Nombre: "+nombre+ ". Tipo de Animal: "+tipoAni)) {
+    this.comenzarAdopcion(id)
+  }
+}
+filtrarPorTipo(tipoAni:String):void{
+  this.formTipo.controls['tipoAni'].setValue(tipoAni);
+  this.servicioMascotas.filtrarPorTipo(this.formTipo.value).subscribe(
+    respuesta=>{
+      console.log(tipoAni);
+      this.mascota=respuesta;
+    }
+  )
 }
 }

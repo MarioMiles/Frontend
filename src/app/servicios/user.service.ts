@@ -14,6 +14,9 @@ export class UserService {
   registrar(usuario: User): Observable<any>{
     return this.http.post(url, usuario)
   }
+  registrarAdmin(usuario:User):Observable<any>{
+    return this.http.post(url+"admin/", usuario)
+  }
 
   acceso (usuario: accesoUsuario): Observable<any>{
     return this.http.post(url+'login/', usuario)

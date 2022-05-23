@@ -36,6 +36,7 @@
               <label for="passconf">Repite contraseña:</label>
               <input class="form-control" type="password" placeholder="Contraseña" id="passconf" formControlName="password2">
             </div>
+            <input class="form-control" type="hidden" placeholder="Contraseña" id="passconf" formControlName="rol" value="user">
           </div>
           <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formRegister.valid">Registrar</button>
         </form>

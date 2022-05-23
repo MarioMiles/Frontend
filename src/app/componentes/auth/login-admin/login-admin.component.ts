@@ -4,17 +4,17 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-admin',
+  templateUrl: './login-admin.component.html',
+  styleUrls: ['./login-admin.component.css']
 })
-export class LoginComponent implements OnInit {
-  formLogin= this.fb.group({
+export class LoginAdminComponent implements OnInit {
+  mensaje: string=''
+  formLoginAdmin= this.fb.group({
     password:['', [Validators.required]],
     email:['', [Validators.required, Validators.email]],
     rol:['']
   })
-  mensaje: string=''
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
       }
   }
   submit(): void{
-    this.servicioUsuario.acceso(this.formLogin.value).subscribe(
+    this.servicioUsuario.acceso(this.formLoginAdmin.value).subscribe(
       respuesta => {
         console.log(respuesta)
-        if((this.formLogin.get('rol').value)=="admin"){
+        if((this.formLoginAdmin.get('rol').value)=="admin"){
           this.servicioUsuario.guardarToken(respuesta)
         
         this.irHacia.navigate(['/about'])

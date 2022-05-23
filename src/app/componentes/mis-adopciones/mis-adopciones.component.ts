@@ -17,12 +17,20 @@ import { AdopcionesService } from 'src/app/servicios/adopciones.service'
 export class MisAdopcionesComponent implements OnInit {
   fnLogged = this.servicioUsuario.isLogged
   constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder,private servicioAdopciones:AdopcionesService) { }
+  formTipo= this.fb.group({
+    tipoAni:[''],
+    
+    
+    
+  })
   mensaje:string;
   perfil: User = {}
   mascota: Mascota[]=[];
+
   mascotaSel: Mascota;
   ngOnInit(): void {
     this.obtenerMascotas()
+    //this.misMascotas(this.perfil.id)
   }
   
   misMascotas(idUsu:number){
@@ -32,6 +40,15 @@ export class MisAdopcionesComponent implements OnInit {
         this.mascota=respuesta; 
           
        }
+    )
+  }
+  filtrarPorTipo(tipoAni:String):void{
+    this.formTipo.controls['tipoAni'].setValue(tipoAni);
+    this.servicioMascotas.filtrarPorTipo(this.formTipo.value).subscribe(
+      respuesta=>{
+        console.log(tipoAni);
+        this.mascota=respuesta;
+      }
     )
   }
   obtenerMascotas():void{

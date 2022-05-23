@@ -10,6 +10,8 @@ div{
 .carta{
     background-color: burlywood;
     border:1px solid;
+    height: fit-content;
+    border-radius: 20px;
  
 }
 #columnas{
@@ -24,7 +26,7 @@ div{
  li{
      display: block;
      cursor: pointer;
-     max-width: 150px;
+     max-width: 180px;
      border-radius: 10px;
      border-bottom: 3px solid;
      border-left: 2px solid;
@@ -37,6 +39,7 @@ div{
  }
  #container{
      width: max-content;
+     
  }
  li:active{
      display: block;

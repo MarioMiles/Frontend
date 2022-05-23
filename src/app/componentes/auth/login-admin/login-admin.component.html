@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-header text-center">LOGIN</div>
         <div class="card-body">
-          <form [formGroup]="formLogin" (submit)="submit()">
+          <form [formGroup]="formLoginAdmin" (submit)="submit()">
               <div class="form-row mb-1">
                 <div class="form-group col-md-6">
                   <label for="email">E-Mail:</label>
@@ -21,7 +21,7 @@
                 <input class="form-control" type="rol" placeholder="Rol" id="rol" formControlName="rol" value="admin">
             </div>
               </div>
-              <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formLogin.valid" style="background-color: green;">Login</button><br>
+              <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formLoginAdmin.valid" style="background-color: green;">Login</button><br>
               <p>¿Aun no estás registrado? Regístrate <a routerLink="/registro" id="an">aquí</a></p>
           </form>
         </div>

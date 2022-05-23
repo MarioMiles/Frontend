@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit {
   constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router) { }
 
   ngOnInit(): void {
-    this.cargarPerfil()
+    
+    
   }
 cargarPerfil(): void{
   this.servicioUsuario.obtenerPerfil().subscribe(

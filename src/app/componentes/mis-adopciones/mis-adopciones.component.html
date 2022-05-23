@@ -1,4 +1,6 @@
 
+<h1 style="color: wheat; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; background-color: rgb(24, 17, 5); padding-left: 200px;">Todos nuestros animales</h1>
+
 <div class="carta">
   <div class="row">
     <div class="col-sm-6" id="col1">
@@ -7,9 +9,9 @@
       
     </ul>
     </div>
-    <strong style="background-color: red; color: black; justify-content: center;">{{mensaje}}</strong>
+  
     
-    <div *ngIf='mascotaSel' style="background-color: rgb(29, 21, 7); margin: 10px; max-height: 200px;border-radius: 10px;margin-top: 50px;">
+    <div *ngIf='mascotaSel' style="background-color: rgb(29, 21, 7); margin: 10px; max-height: 200px;border-radius: 10px; height: fit-content; max-height: fit-content; margin-top: 50px;">
       
         <div class="container" style="background-color: rgb(24, 17, 5); border-radius: 10px;">
           <div class="row" style="border: 2px solid rgb(141, 13, 13); border-radius: 10px; padding: 20px; ">
@@ -26,8 +28,13 @@
               <div class="col-sm-3" id="col2">
                 <h4 class="card-title" style="font-size:18px;">Foto: </h4>
                 <p class="card-text"><img src={{mascotaSel.foto}} style="max-width:180px;margin-bottom: 20px; border: 1px solid wheat; margin-right: 10px;"></p>
+                <ng-template [ngIf]='fnLogged()' [ngIfElse]='salir'>
                 <button type=button  (click)="confirmar(mascotaSel.id, mascotaSel.nombre, mascotaSel.tipoAni)">Adoptar</button>
-    
+              </ng-template>
+              <ng-template #salir>
+                <a href="/login">Inicia sesión</a>
+              </ng-template>
+
             
         
                  

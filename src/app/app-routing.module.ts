@@ -16,6 +16,8 @@ import { AdopcionesComponent } from './componentes/adopciones/adopciones.compone
 import { AnuncioComponent } from './componentes/anuncio/anuncio.component';
 import { MisAdopcionesComponent } from './componentes/mis-adopciones/mis-adopciones.component';
 import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/confirmar-adopcion.component';
+import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.component';
+
 
 const routes: Routes = [
   {path: "", component:HomeComponent},
@@ -32,7 +34,7 @@ const routes: Routes = [
   {path: "anuncio", component:AnuncioComponent},
   {path: "adopciones", component:MisAdopcionesComponent},
   {path: "confirmar", component:ConfirmarAdopcionComponent},
-
+  {path: "loginAdmin", component:LoginAdminComponent},
   {path: "**", component: HomeComponent}
 ];
 

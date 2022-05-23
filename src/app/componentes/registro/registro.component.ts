@@ -33,7 +33,7 @@ export class RegistroComponent implements OnInit {
     console.log ("Evaluando formulario")
     console.log(this.formRegister.getRawValue())
     if (this.formRegister.valid) console.log ("El formulario es correcto")
-    else console.log("Lo que has introducido no vale ná")
+    else console.log("Datos incorrectos.")
   }
   get nombre1() {return this.formRegister.get("nombre")}
   get apellidos1() {return this.formRegister.get("apellidos")}

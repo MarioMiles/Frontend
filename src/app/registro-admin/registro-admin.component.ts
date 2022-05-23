@@ -5,13 +5,13 @@ import { UserService } from 'src/app/servicios/user.service';
 import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
 import { User } from 'src/app/clases/user';
 
-
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registro-admin',
+  templateUrl: './registro-admin.component.html',
+  styleUrls: ['./registro-admin.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegistroAdminComponent implements OnInit {
+
   perfil: User = {}
   formRegister= this.fb.group({
     nombre:[''],
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
   
 submit(): void{
   if (this.formRegister.value.password == this.formRegister.value.password2){
-    this.servicioUsuario.registrar(this.formRegister.value).subscribe(
+    this.servicioUsuario.registrarAdmin(this.formRegister.value).subscribe(
       respuesta =>{
         console.log(respuesta)
         this.servicioUsuario.guardarToken(respuesta)
