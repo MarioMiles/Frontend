@@ -28,6 +28,9 @@ import { MisAdopcionesComponent } from './componentes/mis-adopciones/mis-adopcio
 import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/confirmar-adopcion.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+
+
 
 
 
@@ -55,6 +58,9 @@ import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.
     ConfirmarAdopcionComponent,
     FooterComponent,
     LoginAdminComponent,
+    AdminComponent
+   
+    
     
    
   ],

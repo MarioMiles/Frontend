@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
+import { User } from 'src/app/clases/user';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
     rol:['']
   })
   mensaje: string=''
+  data: Object = {};
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
@@ -23,13 +25,15 @@ export class LoginComponent implements OnInit {
       }
   }
   submit(): void{
+   
     this.servicioUsuario.acceso(this.formLogin.value).subscribe(
       respuesta => {
         console.log(respuesta)
-        if((this.formLogin.get('rol').value)=="admin"){
+        if((this.formLogin.get('email').value)=="ad@ad.ad"){
           this.servicioUsuario.guardarToken(respuesta)
-        
-        this.irHacia.navigate(['/about'])
+          
+          console.log('ADMINNNN')
+        this.irHacia.navigate(['/panelAdmin'])
      
         }else{
         this.servicioUsuario.guardarToken(respuesta)
@@ -44,4 +48,15 @@ export class LoginComponent implements OnInit {
       }
     )
   }
+  eliminarUsuario(): void{
+    this.servicioUsuario.eliminarUsuario().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        
+        
+      },
+      error => console.log(error)
+    )
+  }
+ 
 }

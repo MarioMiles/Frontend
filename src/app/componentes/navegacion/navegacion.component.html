@@ -68,7 +68,14 @@
             </li>
             
         </ng-template>
+        
+      
         </ul>
+        <ng-template [ngIf]='!adminLogged()'>
+        <h1>LAS PAPAYAS</h1>
+          
+        </ng-template>
     </div>
   
 </nav>
+

@@ -16,6 +16,7 @@ import { AdopcionesService } from 'src/app/servicios/adopciones.service'
 })
 export class MisAdopcionesComponent implements OnInit {
   fnLogged = this.servicioUsuario.isLogged
+  adminLogged = this.servicioUsuario.adminIsLogged
   constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder,private servicioAdopciones:AdopcionesService) { }
   formTipo= this.fb.group({
     tipoAni:[''],

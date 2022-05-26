@@ -12,6 +12,7 @@ export class NavegacionComponent implements OnInit {
   perfil: User = {}
   estiloActivo: string = "active text-dark sombra"
   fnLogged = this.servicioUsuario.isLogged
+  adminLogged = this.servicioUsuario.adminIsLogged
   constructor(private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {

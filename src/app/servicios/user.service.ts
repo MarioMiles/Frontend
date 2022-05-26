@@ -33,6 +33,9 @@ export class UserService {
   eliminarUsuario(): Observable<any>{
     return this.http.delete(url)
   }
+  eliminarUser(id:number):Observable<any>{
+    return this.http.delete(url+"id/"+id)
+  }
 
   subirImagen(entrada):Observable<any>{
     return this.http.post(url+'image/', entrada)
@@ -43,6 +46,12 @@ export class UserService {
 
   guardarToken(token:string): void{
     localStorage.setItem('userToken', token)
+  }
+  adminToken(token:string): void{
+    localStorage.setItem('adminToken', token)
+  }
+  adminIsLogged(): boolean{
+    return !!localStorage.getItem('adminToken')
   }
 
   isLogged(): boolean{
@@ -55,6 +64,9 @@ export class UserService {
 
   leerToken(): string{
     return localStorage.getItem('userToken')
+  }
+  leerTokenAd(): string{
+    return localStorage.getItem('adminToken')
   }
   
 }

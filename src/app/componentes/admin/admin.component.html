@@ -1,0 +1,112 @@
+<div style="background-color:black; border:1px solid wheat; border-radius:10px;">
+<h1 style="text-ALIGN:CENTER;">ADMINISTRACIÓN DEL SITIO</h1>
+<h3 style="text-ALIGN:CENTER;">TODOS LOS ANIMALES</h3>
+<button style="background-color:green;"(click)="obtenerTodas()">Ver Mascotas</button>
+<button (click)="vaciarMascotas()">Ocultar Mascotas</button>
+
+<button style="float:right;" (click)="ocultarUsuarios()">Ocultar Usuarios</button>
+<button style="float:right; background-color:green;" (click)="obtenerUsuario()">Ver Usuarios</button>
+</div>
+<div id="header">
+  
+    <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: wheat;">Bienvenid@ a la ventana de adopciones, aquí podrá poner en adopcion a su mascota o adoptar una que lo necesite.</p>
+    </div>        
+    <strong style="background-color: red; color: black; justify-content: center;">{{mensaje}}</strong>
+    <div class="container" *ngFor="let mascota of mascota;">
+      <div id="columnas" style="margin-top: 30px">
+          
+            <h3>{{mascota.nombre}}</h3>
+            <li>Tipo de animal: {{mascota.tipoAni}}</li>
+            <li>Peso(en Kg): {{mascota.peso}}</li>
+            <li>Adoptado: {{mascota.adoptado}}</li>
+            <img class="fotoMascota"src="{{mascota.foto}}"><br>
+            <input type="file" (change)='tengoFoto($event)' style="margin-top: 25px;">
+            
+            <button type="button"(click)='subirFoto(mascota.id)'style="background-color: white;margin-top: 25px; ">Subir imagen</button>
+            <br>
+            
+          </div>
+          
+          
+          <button (click)='eliminarMascota(mascota.id)' style="margin-bottom: 25px;">Eliminar</button>
+            <button (click)='mostrarEditar=!mostrarEditar' style="background-color: yellow;">Editar mascota</button>
+            
+            
+         
+            
+       
+    
+        <div class="card" *ngIf='mostrarEditar'>
+            <form [formGroup]="formMascota2" (submit)="editarMascota(mascota.id)">
+              
+                <input class="form-control" name="id" type="hidden"  id="id" formControlName="id" >
+              
+                  <div class="form-group col-md-3">
+                    <label for="nombre">Nombre:</label>
+                    <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre" style="margin-bottom: 10px;">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="tipoAni">Tipo de animal:</label>
+                    <input class="form-control" type="text" placeholder="Tipo de animal" id="tipoAni" formControlName="tipoAni"style="margin-bottom: 10px;">
+                  </div>
+                  
+                
+                  <div class="form-group col-md-2">
+                    <label for="Peso:">Peso (en Kg):</label>
+                    <input class="form-control" type="number" placeholder="Peso" id="peso" formControlName="peso"style="margin-bottom: 10px;">
+                  </div>
+                 
+                 
+                 
+               
+                <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formMascota.valid">Guardar cambios</button>
+                
+              </form>
+                <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+                
+            </div>
+        
+    
+    </div>
+    <div class="carta">
+    
+    
+    <div style="padding:5px;" class="sub">
+    <ng-template [ngIf]='!adminLogged()' [ngIfElse]='salir'>
+      <p style="color: black;">Necesitas estar logeado para añadir una mascota</p>
+      <p><a class="boton_personalizado" href="/login" id="login">Entrar</a></p>
+      <p style="color: black;">¿No estás registrado? ¡Únete!</p>
+      <p><a class="boton_personalizado" href="/registro" id="registrarse">Registrarse</a></p>
+      
+    </ng-template>
+    </div>
+    <ng-template #salir>
+      <button style="margin-left:30px;"><a routerLink="/anuncio">Añade a tu mascota</a></button>
+    </ng-template>
+    </div>
+    <div id="carta" style="border: 1px solid black;">
+        <div class="card-body">
+          <h4 style="color: wheat;"class="card-title">Lista de Usuarios</h4>
+          <ul>
+              <li (click)='usuarioSel = user' *ngFor='let user of usuarios'>{{user.nombre}}, {{user.email}}</li>
+          </ul>
+           <div  id="carta2" *ngIf='usuarioSel' style="border: 1px solid black;">
+          <img class="card-img-top" src="holder.js/100px180/" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Nombre</h4>
+            <p class="card-text">{{usuarioSel.nombre}}</p>
+            <h4 class="card-title">Apellidos</h4>
+            <p class="card-text">{{usuarioSel.apellidos}}</p>
+            <h4 class="card-title">email</h4>
+            <p class="card-text">{{usuarioSel.email}}</p>
+            <p class="card-text"><img src="{{perfil.foto}}"></p>
+            {{usuarioSel.foto}}
+            
+          </div>
+        </div>
+        </div>
+       
+      </div>
+
+    
+    

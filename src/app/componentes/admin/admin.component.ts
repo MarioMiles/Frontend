@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import {  Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -6,15 +7,15 @@ import { User } from 'src/app/clases/user';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormBuilder } from '@angular/forms';
-import { identifierName } from '@angular/compiler';
-
 
 @Component({
-  selector: 'app-adopciones',
-  templateUrl: './adopciones.component.html',
-  styleUrls: ['./adopciones.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class AdopcionesComponent implements OnInit {
+
+
+export class AdminComponent implements OnInit {
   perfil: User = {}
   mascota: Mascota[]=[];
   masc: Mascota = {}
@@ -44,27 +45,20 @@ export class AdopcionesComponent implements OnInit {
     
     
   })
- 
-  
   adminLogged = this.servicioUsuario.adminIsLogged
   fnLogged = this.servicioUsuario.isLogged
   constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder,) { }
-  
-  
-
-  ngOnInit(): void {
-    //this.obtenerMascotas();
-    
-    this.misMascotas(this.perfil.id);
-    
-  }
- 
+  usuarioSel:User
   mensaje: string=''
   tipoAni:string
   id:number
   foto: File 
+  usuarios: User[]
   mostrarEditar: boolean = false
   'responseType': 'text'
+  ngOnInit(): void {
+   
+  }
   cargarMascota(): void{
     
     this.servicioMascotas.obtenerMascota().subscribe(
@@ -92,6 +86,20 @@ obtenerMascotas():void{
     respuesta=>{
       console.log(respuesta);
       this.mascota=respuesta;
+      
+    }, error => {
+      console.log(error)
+      this.mensaje=error.error.error
+    }
+    
+    
+  )
+}
+vaciarMascotas():void{
+  this.servicioMascotas.obtenerMascota().subscribe(
+    respuesta=>{
+      console.log(respuesta);
+      this.mascota=null;
       
     }, error => {
       console.log(error)
@@ -223,4 +231,55 @@ filtrarPorTipo(tipoAni:String):void{
     }
   )
 }
+obtenerUsuario(): void{
+  this.servicioUsuario.listarUsuarios().subscribe(
+    respuesta => {
+      console.log(respuesta);
+      this.usuarios=respuesta;
+    },
+    error => {
+      console.log(error);
+    }
+  )
 }
+ocultarUsuarios():void{
+  this.servicioUsuario.listarUsuarios().subscribe(
+    respuesta => {
+      console.log(respuesta);
+      this.usuarios=[];
+    },
+    error => {
+      console.log(error);
+    }
+  )
+}
+obtenerTodas():void{
+  this.servicioMascotas.obtenerTodas().subscribe(
+    respuesta=>{
+      console.log(respuesta);
+      this.mascota=respuesta;
+      
+    }, error => {
+      console.log(error)
+      this.mensaje=error.error.error
+    }
+    
+    
+  )
+}
+eliminarUser(id:number){
+  this.servicioUsuario.eliminarUser(id).subscribe(
+  respuesta=>{
+    console.log(respuesta);
+    this.usuarios=respuesta;
+    
+  }, error => {
+    console.log(error)
+    this.mensaje=error.error.error
+  }
+  
+  
+)
+}
+}
+

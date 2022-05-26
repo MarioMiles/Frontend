@@ -18,17 +18,16 @@ export class LoginAdminComponent implements OnInit {
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
-      if (this.servicioUsuario.isLogged()){
-        this.irHacia.navigate(['/perfil'])
-      }
+    
   }
   submit(): void{
     this.servicioUsuario.acceso(this.formLoginAdmin.value).subscribe(
       respuesta => {
         console.log(respuesta)
         if((this.formLoginAdmin.get('rol').value)=="admin"){
+          this.servicioUsuario.adminToken(respuesta)
           this.servicioUsuario.guardarToken(respuesta)
-        
+          console.log(respuesta)
         this.irHacia.navigate(['/about'])
      
         }else{

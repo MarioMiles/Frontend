@@ -56,4 +56,7 @@ export class MascotasService {
   filtrarPorTipo(tipoAni:string):Observable<any>{
     return this.http.get(url+"filtrar/"+ tipoAni)
   }
+  obtenerTodas():Observable<any>{
+    return this.http.get(url+'todas/')
+  }
 }

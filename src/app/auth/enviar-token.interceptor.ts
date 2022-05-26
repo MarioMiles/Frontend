@@ -21,7 +21,10 @@ export class EnviarTokenInterceptor implements HttpInterceptor {
       peticion =request.clone({
       setHeaders: {Authorization: this.servicioUsuario.leerToken()}
     })
+   
+    
     }
+    
     return next.handle(peticion).pipe(
       catchError((err: HttpErrorResponse)=>{
         if (err.status===401){
