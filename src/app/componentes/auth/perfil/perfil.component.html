@@ -9,6 +9,7 @@
         <p class="card-text"style="color: wheat;">E-mail: <b>{{perfil.email}}</b></p>
         <p class="card-text"style="color: wheat;">Teléfono: <b>{{perfil.telefono}}</b></p>
         
+        
 
 
         <span style="color: wheat;">Foto:</span><br><img src="{{perfil.foto}}" id="fotoP"><br><br>
@@ -60,6 +61,7 @@
         <button (click)='mostrarEliminar=!mostrarEliminar; inputBorrar=""'>Cancelar</button>
         <button (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
     </div>
+    
 </div> 
 
 <br>

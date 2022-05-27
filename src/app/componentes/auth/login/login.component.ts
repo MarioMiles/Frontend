@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
           
           console.log('ADMINNNN')
         this.irHacia.navigate(['/panelAdmin'])
+        location.reload()
      
         }else{
         this.servicioUsuario.guardarToken(respuesta)

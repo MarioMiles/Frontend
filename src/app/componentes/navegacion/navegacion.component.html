@@ -23,7 +23,7 @@
         
       
         <li class="nav-item">
-            <a class="nav-link" routerLink="/listaPerfiles" routerLinkActive="{{estiloActivo}}">Lista de perfiles</a>
+            <a class="nav-link" routerLink="/sugerencias" routerLinkActive="{{estiloActivo}}">Sugerencias</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/adopciones" routerLinkActive="{{estiloActivo}}">Todos los animales</a>
@@ -60,21 +60,21 @@
            
             <li class="nav-item">
                 <img src={{perfil.foto}} id="fotoP">
-                
+                <p style="padding-top:5px;"*ngIf="(perfil.email)=='ad@ad.ad'"><a href="/panelAdmin">Panel de ADMINISTRACIÓN</a></p>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/perfil" id="an">{{perfil.nombre}}</a>
                 
             </li>
-            
+            <br>
+            <li style="padding-top: 20px;" class="nav-item">
+                
+            </li>
         </ng-template>
         
       
         </ul>
-        <ng-template [ngIf]='!adminLogged()'>
-        <h1>LAS PAPAYAS</h1>
-          
-        </ng-template>
+      
     </div>
   
 </nav>

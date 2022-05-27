@@ -1,15 +1,18 @@
-<div style="background-color:black; border:1px solid wheat; border-radius:10px;">
-<h1 style="text-ALIGN:CENTER;">ADMINISTRACIÓN DEL SITIO</h1>
+<div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;"><H1 style="text-align: CENTER;">ADMINISTRACIÓN DEL SITIO</H1></div>
+<div *ngIf="(perfil.email)=='ad@ad.ad'; else ex" >
+<div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;">
+
 <h3 style="text-ALIGN:CENTER;">TODOS LOS ANIMALES</h3>
+
 <button style="background-color:green;"(click)="obtenerTodas()">Ver Mascotas</button>
 <button (click)="vaciarMascotas()">Ocultar Mascotas</button>
+<button style="background-color: blue;"><a routerLink="/anuncio">Añade a tu mascota</a></button>
 
-<button style="float:right;" (click)="ocultarUsuarios()">Ocultar Usuarios</button>
-<button style="float:right; background-color:green;" (click)="obtenerUsuario()">Ver Usuarios</button>
+
 </div>
 <div id="header">
   
-    <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: wheat;">Bienvenid@ a la ventana de adopciones, aquí podrá poner en adopcion a su mascota o adoptar una que lo necesite.</p>
+    
     </div>        
     <strong style="background-color: red; color: black; justify-content: center;">{{mensaje}}</strong>
     <div class="container" *ngFor="let mascota of mascota;">
@@ -68,45 +71,64 @@
         
     
     </div>
-    <div class="carta">
+    <div>
     
     
-    <div style="padding:5px;" class="sub">
-    <ng-template [ngIf]='!adminLogged()' [ngIfElse]='salir'>
-      <p style="color: black;">Necesitas estar logeado para añadir una mascota</p>
-      <p><a class="boton_personalizado" href="/login" id="login">Entrar</a></p>
-      <p style="color: black;">¿No estás registrado? ¡Únete!</p>
-      <p><a class="boton_personalizado" href="/registro" id="registrarse">Registrarse</a></p>
-      
-    </ng-template>
-    </div>
-    <ng-template #salir>
-      <button style="margin-left:30px;"><a routerLink="/anuncio">Añade a tu mascota</a></button>
-    </ng-template>
-    </div>
-    <div id="carta" style="border: 1px solid black;">
+   
+    <div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;">
         <div class="card-body">
-          <h4 style="color: wheat;"class="card-title">Lista de Usuarios</h4>
+          <h3 style="text-align: center;">LISTA DE USUARIOS</h3>
+          <button style=" background-color:green;" (click)="obtenerUsuario()">Ver Usuarios</button>
+          <button (click)="ocultarUsuarios()">Ocultar Usuarios</button>
+       
+         
           <ul>
-              <li (click)='usuarioSel = user' *ngFor='let user of usuarios'>{{user.nombre}}, {{user.email}}</li>
+              <li style="color: rgb(255, 255, 255);" (click)='usuarioSel = user' *ngFor='let user of usuarios'>{{user.nombre}}, {{user.email}}</li>
           </ul>
-           <div  id="carta2" *ngIf='usuarioSel' style="border: 1px solid black;">
-          <img class="card-img-top" src="holder.js/100px180/" alt="">
-          <div class="card-body">
+           <div *ngIf='usuarioSel' style="border: 1px solid black;">
+         
+          <div style="color: rgb(253, 253, 253);">
             <h4 class="card-title">Nombre</h4>
             <p class="card-text">{{usuarioSel.nombre}}</p>
             <h4 class="card-title">Apellidos</h4>
             <p class="card-text">{{usuarioSel.apellidos}}</p>
             <h4 class="card-title">email</h4>
             <p class="card-text">{{usuarioSel.email}}</p>
-            <p class="card-text"><img src="{{perfil.foto}}"></p>
+            <p class="card-text"><img src={{usuarioSel.foto}}></p>
             {{usuarioSel.foto}}
             
           </div>
+        
         </div>
-        </div>
-       
       </div>
-
+      </div>
+    </div>
+   
+    </div>
+    <div style="background-color:black; border:1px solid wheat; border-radius: 10px; margin-bottom: 150px;"class="container">
+    <h3 style="text-align: center;">SUGERENCIAS Y COMENTARIOS</h3>
+    <button style="background-color:green;" (click)="verSugerencias()">Ver sugerencias</button>
+    <button (click)="ocultarSugerencias()">Ocultar sugerencias</button>
+    <div *ngFor="let sugerencia of sugerencias;">
+     
+          <div class="mensaje" style="background-color:burlywood ; border:1px solid wheat; border-radius: 10px; margin: 10px; padding: 20px; color: black;">
+            <li><b>Asunto: </b>{{sugerencia.asunto}}<br><b style="padding-left: 20px;">Mensaje:</b> {{sugerencia.mensaje}}<br><b style="padding-left: 20px;">Usuario: </b>{{sugerencia.idUsu}}</li>
+            <br><div class="form-group col-md-6"></div>
+            <button class="btn btn-primary btn-block" (click)="eliminarSugerencia(sugerencia.id)">Eliminar</button>
+            </div>
+  
+          </div>
+        </div> 
+          
     
+    <ng-template #ex>
+    <div style="text-align: center; background-color:black; border:1px solid wheat; border-radius:10px;">
+        <h1>NO TIENES PERMISO DE ADMINISTRADOR</h1>
+        <a href="/home">Volver a inicio</a>
+    </div>
+    </ng-template>
+      
+
+
+  
     

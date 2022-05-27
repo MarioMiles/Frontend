@@ -18,6 +18,7 @@ import { MisAdopcionesComponent } from './componentes/mis-adopciones/mis-adopcio
 import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/confirmar-adopcion.component';
 import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.component';
 import { AdminComponent } from './componentes/admin/admin.component';
+import { SugerenciasComponent } from './componentes/sugerencias/sugerencias.component';
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: "confirmar", component:ConfirmarAdopcionComponent},
   {path: "loginAdmin", component:LoginAdminComponent},
   {path: "panelAdmin", component:AdminComponent},
+  {path: "sugerencias", component: SugerenciasComponent},
  
 
   {path: "**", component: HomeComponent}

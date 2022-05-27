@@ -7,6 +7,8 @@ import { User } from 'src/app/clases/user';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormBuilder } from '@angular/forms';
+import { Sugerencia } from 'src/app/clases/sugerencia';
+import { SugerenciasService } from 'src/app/servicios/sugerencias.service';
 
 @Component({
   selector: 'app-admin',
@@ -19,6 +21,7 @@ export class AdminComponent implements OnInit {
   perfil: User = {}
   mascota: Mascota[]=[];
   masc: Mascota = {}
+  sugerencias: Sugerencia[]
   
   mascotaSel: Mascota
   formMascota= this.fb.group({
@@ -47,17 +50,30 @@ export class AdminComponent implements OnInit {
   })
   adminLogged = this.servicioUsuario.adminIsLogged
   fnLogged = this.servicioUsuario.isLogged
-  constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder,) { }
+  constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private ServicioSugerencias: SugerenciasService, private fb:FormBuilder,) { }
   usuarioSel:User
   mensaje: string=''
   tipoAni:string
   id:number
   foto: File 
+
   usuarios: User[]
   mostrarEditar: boolean = false
   'responseType': 'text'
   ngOnInit(): void {
+    this.cargarPerfil()
    
+    
+  }
+  cargarPerfil(): void{
+    this.servicioUsuario.obtenerPerfil().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.perfil = respuesta
+        
+      },
+      error => console.log(error)
+    )
   }
   cargarMascota(): void{
     
@@ -280,6 +296,36 @@ eliminarUser(id:number){
   
   
 )
+}
+verSugerencias(){
+  this.ServicioSugerencias.listarSugerencias().subscribe(
+    respuesta=>{
+      console.log(respuesta);
+      this.sugerencias=respuesta;
+    }, error => {
+      console.log(error)
+      this.mensaje=error.error.error
+    }
+  )
+}
+ocultarSugerencias(){
+  this.ServicioSugerencias.listarSugerencias().subscribe(
+    respuesta=>{
+      console.log(respuesta);
+      this.sugerencias=null;
+    }, error => {
+      console.log(error)
+      this.mensaje=error.error.error
+    }
+  )
+}
+eliminarSugerencia(id:number):void{
+  this.ServicioSugerencias.eliminarSugerencia(id).subscribe(
+    respuesta=>{
+      console.log(respuesta);
+      location.reload()
+    }
+  )
 }
 }
 

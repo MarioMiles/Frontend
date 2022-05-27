@@ -29,6 +29,8 @@ import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/con
 import { FooterComponent } from './componentes/footer/footer.component';
 import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.component';
 import { AdminComponent } from './componentes/admin/admin.component';
+import { SugerenciasComponent } from './componentes/sugerencias/sugerencias.component';
+
 
 
 
@@ -58,7 +60,9 @@ import { AdminComponent } from './componentes/admin/admin.component';
     ConfirmarAdopcionComponent,
     FooterComponent,
     LoginAdminComponent,
-    AdminComponent
+    AdminComponent,
+    SugerenciasComponent
+    
    
     
     
@@ -75,6 +79,7 @@ import { AdminComponent } from './componentes/admin/admin.component';
   providers: [
     {provide:LOCALE_ID, useValue:"es"},
     {provide: HTTP_INTERCEPTORS, useClass:EnviarTokenInterceptor, multi:true}
+  
   ],
   bootstrap: [AppComponent]
 })
