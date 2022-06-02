@@ -31,6 +31,8 @@ export class MisAdopcionesComponent implements OnInit {
   mascotaSel: Mascota;
   ngOnInit(): void {
     this.obtenerMascotas()
+    this.cargarPerfil()
+    
     //this.misMascotas(this.perfil.id)
   }
   
@@ -43,7 +45,7 @@ export class MisAdopcionesComponent implements OnInit {
        }
     )
   }
-  filtrarPorTipo(tipoAni:String):void{
+  /*filtrarPorTipo(tipoAni:String):void{
     this.formTipo.controls['tipoAni'].setValue(tipoAni);
     this.servicioMascotas.filtrarPorTipo(this.formTipo.value).subscribe(
       respuesta=>{
@@ -51,7 +53,7 @@ export class MisAdopcionesComponent implements OnInit {
         this.mascota=respuesta;
       }
     )
-  }
+  }*/
   obtenerMascotas():void{
     this.servicioMascotas.obtenerMascota().subscribe(
       respuesta=>{
@@ -86,6 +88,25 @@ export class MisAdopcionesComponent implements OnInit {
     if(confirm("Estás a punto de adoptar a la mascota con id: "+id+".Nombre: "+nombre+ ". Tipo de Animal: "+tipoAni)) {
       this.comenzarAdopcion(id)
     }
+  }
+  cargarPerfil(): void{
+    this.servicioUsuario.obtenerPerfil().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.perfil = respuesta
+       
+      },
+      error => console.log(error)
+    )
+  }
+  isAdmin():void{
+    this.servicioUsuario.comprobarRol().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        
+      },
+      error => console.log(error)
+    )
   }
  
   }

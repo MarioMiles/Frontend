@@ -38,7 +38,10 @@ submit(): void{
         this.servicioUsuario.guardarToken(respuesta)
         this.irHacia.navigate(['/perfil'])
       },
-      error => console.log(error)
+      
+      error => console.log(error),
+      location.reload,
+      
     )
   }
   else alert('Las contraseñas no coinciden')

@@ -4,6 +4,7 @@ import { UserService } from 'src/app/servicios/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { FormBuilder, Validators } from '@angular/forms';
+import { exit } from 'process';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -28,12 +29,13 @@ export class HomeComponent implements OnInit {
   selUser(entrada):void{
     this.usuarioSel=entrada
   }
-
+ 
   fnLogged = this.servicioUsuario.isLogged
   constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router) { }
 
   ngOnInit(): void {
-    
+  
+   
     
   }
 cargarPerfil(): void{
@@ -42,6 +44,23 @@ cargarPerfil(): void{
       console.log(respuesta)
       this.perfil = respuesta
       this.formPerfil.patchValue(respuesta)
+    },
+    error => console.log(error)
+  )
+}
+rolAdmin=false;
+isAdmin():any{
+  this.servicioUsuario.comprobarRol().subscribe(
+    respuesta => {
+   
+     if(respuesta=="admin"){
+       this.rolAdmin=true;
+       console.log(this.rolAdmin);
+      
+     }else{
+        this.rolAdmin=false;
+      
+     }
     },
     error => console.log(error)
   )

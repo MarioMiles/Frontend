@@ -18,6 +18,7 @@ export class AdopcionesComponent implements OnInit {
   perfil: User = {}
   mascota: Mascota[]=[];
   masc: Mascota = {}
+  mascotas: Mascota[]
   
   mascotaSel: Mascota
   formMascota= this.fb.group({
@@ -39,7 +40,7 @@ export class AdopcionesComponent implements OnInit {
     
   })
   formTipo= this.fb.group({
-    tipoAni:[''],
+    tipoAni:['']
     
     
     
@@ -60,7 +61,7 @@ export class AdopcionesComponent implements OnInit {
   }
  
   mensaje: string=''
-  tipoAni:string
+  tipoAni:string=''
   id:number
   foto: File 
   mostrarEditar: boolean = false
@@ -214,13 +215,13 @@ confirmar(id:number, nombre:string, tipoAni:string) {
     this.comenzarAdopcion(id)
   }
 }
-filtrarPorTipo(tipoAni:String):void{
-  this.formTipo.controls['tipoAni'].setValue(tipoAni);
-  this.servicioMascotas.filtrarPorTipo(this.formTipo.value).subscribe(
-    respuesta=>{
-      console.log(tipoAni);
-      this.mascota=respuesta;
-    }
+isAdmin():void{
+  this.servicioUsuario.comprobarRol().subscribe(
+    respuesta => {
+      console.log(respuesta)
+      
+    },
+    error => console.log(error)
   )
 }
 }

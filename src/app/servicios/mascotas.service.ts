@@ -53,8 +53,9 @@ export class MascotasService {
    
     return this.http.post(url+"confirmar/"+ id, id)
   }
-  filtrarPorTipo(tipoAni:string):Observable<any>{
-    return this.http.get(url+"filtrar/"+ tipoAni)
+  filtrarPorTipo():Observable<any>{
+   
+    return this.http.get(url+"filtrar/")
   }
   obtenerTodas():Observable<any>{
     return this.http.get(url+'todas/')

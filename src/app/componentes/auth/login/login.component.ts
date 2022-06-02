@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.servicioUsuario.acceso(this.formLogin.value).subscribe(
       respuesta => {
         console.log(respuesta)
-        if((this.formLogin.get('email').value)=="ad@ad.ad"){
+        if((this.formLogin.get('email').value)=="ad@ad.ad" && (this.formLogin.get('password').value=="admin")){
           this.servicioUsuario.guardarToken(respuesta)
           
           console.log('ADMINNNN')

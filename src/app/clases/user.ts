@@ -7,6 +7,7 @@ export interface User {
     telefono?: number
     dni?: string
     foto?: String
+    rol?: String
 }
 export interface accesoUsuario{
     email: string

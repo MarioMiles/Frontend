@@ -1,134 +1,152 @@
-<div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;"><H1 style="text-align: CENTER;">ADMINISTRACIÓN DEL SITIO</H1></div>
-<div *ngIf="(perfil.email)=='ad@ad.ad'; else ex" >
 <div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;">
-
-<h3 style="text-ALIGN:CENTER;">TODOS LOS ANIMALES</h3>
-
-<button style="background-color:green;"(click)="obtenerTodas()">Ver Mascotas</button>
-<button (click)="vaciarMascotas()">Ocultar Mascotas</button>
-<button style="background-color: blue;"><a routerLink="/anuncio">Añade a tu mascota</a></button>
-
-
+  <H1 style="text-align: CENTER;">ADMINISTRACIÓN DEL SITIO</H1>
 </div>
-<div id="header">
-  
-    
-    </div>        
-    <strong style="background-color: red; color: black; justify-content: center;">{{mensaje}}</strong>
-    <div class="container" *ngFor="let mascota of mascota;">
-      <div id="columnas" style="margin-top: 30px">
-          
-            <h3>{{mascota.nombre}}</h3>
-            <li>Tipo de animal: {{mascota.tipoAni}}</li>
-            <li>Peso(en Kg): {{mascota.peso}}</li>
-            <li>Adoptado: {{mascota.adoptado}}</li>
-            <img class="fotoMascota"src="{{mascota.foto}}"><br>
-            <input type="file" (change)='tengoFoto($event)' style="margin-top: 25px;">
-            
-            <button type="button"(click)='subirFoto(mascota.id)'style="background-color: white;margin-top: 25px; ">Subir imagen</button>
-            <br>
-            
-          </div>
-          
-          
-          <button (click)='eliminarMascota(mascota.id)' style="margin-bottom: 25px;">Eliminar</button>
-            <button (click)='mostrarEditar=!mostrarEditar' style="background-color: yellow;">Editar mascota</button>
-            
-            
-         
-            
-       
-    
-        <div class="card" *ngIf='mostrarEditar'>
-            <form [formGroup]="formMascota2" (submit)="editarMascota(mascota.id)">
-              
-                <input class="form-control" name="id" type="hidden"  id="id" formControlName="id" >
-              
-                  <div class="form-group col-md-3">
-                    <label for="nombre">Nombre:</label>
-                    <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre" style="margin-bottom: 10px;">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="tipoAni">Tipo de animal:</label>
-                    <input class="form-control" type="text" placeholder="Tipo de animal" id="tipoAni" formControlName="tipoAni"style="margin-bottom: 10px;">
-                  </div>
-                  
-                
-                  <div class="form-group col-md-2">
-                    <label for="Peso:">Peso (en Kg):</label>
-                    <input class="form-control" type="number" placeholder="Peso" id="peso" formControlName="peso"style="margin-bottom: 10px;">
-                  </div>
-                 
-                 
-                 
-               
-                <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formMascota.valid">Guardar cambios</button>
-                
-              </form>
-                <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
-                
-            </div>
-        
-    
+<div *ngIf="(perfil.rol)=='admin'; else ex">
+  <div
+    style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px; justify-content: center;">
+
+    <h3 style="text-ALIGN:CENTER;">TODOS LOS ANIMALES</h3>
+    <div style="text-align:center;padding: 10px;">
+      <button style="background-color:green;" (click)="obtenerTodas()">Ver Mascotas</button>
+      <button (click)="vaciarMascotas()">Ocultar Mascotas</button>
+      <button style="background-color: rgb(255, 208, 0);"><a style="color:black" routerLink="/anuncio">Añade a tu
+          mascota</a></button>
     </div>
-    <div>
-    
-    
-   
-    <div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;">
-        <div class="card-body">
-          <h3 style="text-align: center;">LISTA DE USUARIOS</h3>
-          <button style=" background-color:green;" (click)="obtenerUsuario()">Ver Usuarios</button>
-          <button (click)="ocultarUsuarios()">Ocultar Usuarios</button>
-       
-         
-          <ul>
-              <li style="color: rgb(255, 255, 255);" (click)='usuarioSel = user' *ngFor='let user of usuarios'>{{user.nombre}}, {{user.email}}</li>
-          </ul>
-           <div *ngIf='usuarioSel' style="border: 1px solid black;">
-         
-          <div style="color: rgb(253, 253, 253);">
-            <h4 class="card-title">Nombre</h4>
-            <p class="card-text">{{usuarioSel.nombre}}</p>
-            <h4 class="card-title">Apellidos</h4>
-            <p class="card-text">{{usuarioSel.apellidos}}</p>
-            <h4 class="card-title">email</h4>
-            <p class="card-text">{{usuarioSel.email}}</p>
-            <p class="card-text"><img src={{usuarioSel.foto}}></p>
-            {{usuarioSel.foto}}
-            
-          </div>
-        
+
+  </div>
+  <div id="header">
+
+
+  </div>
+  <strong style="background-color: red; color: black; justify-content: center; ">{{mensaje}}</strong>
+  <div class="container" *ngFor="let mascota of mascota;">
+    <div id="columnas" style="margin-top: 30px">
+
+      <h3>{{mascota.nombre}}</h3>
+      <li>Tipo de animal: {{mascota.tipoAni}}</li>
+      <li>Peso(en Kg): {{mascota.peso}}</li>
+      <li>Adoptado: {{mascota.adoptado}}</li>
+      <img class="fotoMascota" src="{{mascota.foto}}"><br>
+      <input type="file" (change)='tengoFoto($event)' style="margin-top: 25px;">
+
+      <button type="button" (click)='subirFoto(mascota.id)' style="background-color: white;margin-top: 25px; ">Subir
+        imagen</button>
+      <br>
+
+    </div>
+
+
+    <button (click)='eliminarMascota(mascota.id)' style="margin-bottom: 25px;">Eliminar</button>
+    <button (click)='mostrarEditar=!mostrarEditar' style="background-color: yellow;">Editar mascota</button>
+
+
+
+
+
+
+    <div class="card" *ngIf='mostrarEditar'>
+      <form [formGroup]="formMascota2" (submit)="editarMascota(mascota.id)">
+
+        <input class="form-control" name="id" type="hidden" id="id" formControlName="id">
+
+        <div class="form-group col-md-3">
+          <label for="nombre">Nombre:</label>
+          <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre"
+            style="margin-bottom: 10px;">
         </div>
-      </div>
-      </div>
+        <div class="form-group col-md-6">
+          <label for="tipoAni">Tipo de animal:</label>
+          <input class="form-control" type="text" placeholder="Tipo de animal" id="tipoAni" formControlName="tipoAni"
+            style="margin-bottom: 10px;">
+        </div>
+
+
+        <div class="form-group col-md-2">
+          <label for="Peso:">Peso (en Kg):</label>
+          <input class="form-control" type="number" placeholder="Peso" id="peso" formControlName="peso"
+            style="margin-bottom: 10px;">
+        </div>
+
+
+
+
+        <button class="btn btn-primary btn-block" type="submit" [disabled]="!formMascota.valid">Guardar cambios</button>
+
+      </form>
+      <button (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+
     </div>
+
+
+  </div>
+  
+
+
+
+  <div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;">
+    <div style="text-align: center;padding: 10px;">
+      <h3 style="text-align: center;">LISTA DE USUARIOS</h3>
+      <button style=" background-color:green;" (click)="obtenerUsuario()">Ver Usuarios</button>
+      <button (click)="ocultarUsuarios()">Ocultar Usuarios</button>
+
+
+
+      <li style="color: rgb(255, 255, 255); text-align:left ;" (click)='usuarioSel = user'
+        *ngFor='let user of usuarios'>{{user.nombre}}, {{user.email}}</li>
+
+      <div *ngIf='usuarioSel' style="border: 1px solid black;">
+
+        <div class="columnas">
+        <h4 class="card-title">Nombre y apellidos</h4>
+        <p class="card-text">{{usuarioSel.nombre}} {{usuarioSel.apellidos}}</p>
+        
+        <h4 class="card-title">Email</h4>
+        <p class="card-text">{{usuarioSel.email}}</p>
+     
+        <h4 class="card-title">Rol<br><p style="font-size: 15px; color:grey;">{{usuarioSel.rol}}</p></h4>
+        
    
+    
+        <p class="card-text"><img style="max-width: 250px;min-width:200px;border:1px solid wheat; border-radius: 10px;"src={{usuarioSel.foto}}></p>
+      </div>
+        <button (click)="darAdmin(usuarioSel.id)">Hacer administrador</button>
+        <button (click)="quitarAdmin(usuarioSel.id)">Quitar administrador</button>
+
+
+
+
+      </div>
     </div>
-    <div style="background-color:black; border:1px solid wheat; border-radius: 10px; margin-bottom: 150px;"class="container">
-    <h3 style="text-align: center;">SUGERENCIAS Y COMENTARIOS</h3>
+  </div>
+
+
+
+<div style="background-color:black; border:1px solid wheat; border-radius: 10px; margin-bottom: 150px;"
+  class="container">
+  <h3 style="text-align: center;">SUGERENCIAS Y COMENTARIOS</h3>
+  <div style="text-align: center;padding:10px;">
     <button style="background-color:green;" (click)="verSugerencias()">Ver sugerencias</button>
     <button (click)="ocultarSugerencias()">Ocultar sugerencias</button>
-    <div *ngFor="let sugerencia of sugerencias;">
-     
-          <div class="mensaje" style="background-color:burlywood ; border:1px solid wheat; border-radius: 10px; margin: 10px; padding: 20px; color: black;">
-            <li><b>Asunto: </b>{{sugerencia.asunto}}<br><b style="padding-left: 20px;">Mensaje:</b> {{sugerencia.mensaje}}<br><b style="padding-left: 20px;">Usuario: </b>{{sugerencia.idUsu}}</li>
-            <br><div class="form-group col-md-6"></div>
-            <button class="btn btn-primary btn-block" (click)="eliminarSugerencia(sugerencia.id)">Eliminar</button>
-            </div>
-  
-          </div>
-        </div> 
-          
-    
-    <ng-template #ex>
-    <div style="text-align: center; background-color:black; border:1px solid wheat; border-radius:10px;">
-        <h1>NO TIENES PERMISO DE ADMINISTRADOR</h1>
-        <a href="/home">Volver a inicio</a>
+  </div>
+  <div *ngFor="let sugerencia of sugerencias;">
+
+    <div class="mensaje"
+      style="background-color:burlywood ; border:1px solid wheat; border-radius: 10px; margin: 10px; padding: 20px; color: black;">
+      <li><b>Asunto: </b>{{sugerencia.asunto}}<br><b style="padding-left: 20px;">Mensaje:</b>
+        {{sugerencia.mensaje}}<br><b style="padding-left: 20px;">Usuario: </b>{{sugerencia.idUsu}}</li>
+      <br>
+      <div class="form-group col-md-6"></div>
+      <button class="btn btn-primary btn-block" (click)="eliminarSugerencia(sugerencia.id)">Eliminar</button>
     </div>
-    </ng-template>
-      
+
+  </div>
+</div>
+</div>
 
 
-  
-    
+<ng-template #ex>
+  <div style="text-align: center; background-color:black; border:1px solid wheat; border-radius:10px;">
+    <h4 style="color:red">NO TIENES PERMISO DE ADMINISTRADOR</h4>
+    <a href="/home">Volver a inicio</a>
+  </div>
+</ng-template>

@@ -29,6 +29,7 @@ export class SugerenciasComponent implements OnInit {
         
         this.mensaje=respuesta;
         this.formSugerencia.reset();
+       
       }
     )
 

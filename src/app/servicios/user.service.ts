@@ -14,9 +14,7 @@ export class UserService {
   registrar(usuario: User): Observable<any>{
     return this.http.post(url, usuario)
   }
-  registrarAdmin(usuario:User):Observable<any>{
-    return this.http.post(url+"admin/", usuario)
-  }
+  
 
   acceso (usuario: accesoUsuario): Observable<any>{
     return this.http.post(url+'login/', usuario)
@@ -43,6 +41,9 @@ export class UserService {
   listarUsuarios():Observable<any>{
     return this.http.get(url+'list/')
   }
+  comprobarRol():Observable<any>{
+    return this.http.get(url+"rol/")
+  }
 
   guardarToken(token:string): void{
     localStorage.setItem('userToken', token)
@@ -67,6 +68,12 @@ export class UserService {
   }
   leerTokenAd(): string{
     return localStorage.getItem('adminToken')
+  }
+  darAdmin(id:number):Observable<any>{
+    return this.http.put(url+"admin/"+ id, id)
+  }
+  quitarAdmin(id:number):Observable<any>{
+    return this.http.put(url+"user/"+ id, id)
   }
   
 }

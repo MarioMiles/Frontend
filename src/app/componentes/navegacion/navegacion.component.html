@@ -2,7 +2,7 @@
   <div class="container">
       <div id="logo">
         
-        <a href="/home"><img src="assets/img/logo1.PNG" width="70" height="60"></a>
+        <a href="/home"><img style="border:1px solid white; border-radius:5px;" src="assets/img/logo1.PNG" width="70" height="60"></a>
 
         
       </div>
@@ -51,16 +51,17 @@
         <ng-template #salir>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/perfil" routerLinkActive="{{estiloActivo}}"id="an">Perfil</a>
-                <ul style="border-radius:10px; background-color: rgb(36, 35, 35); padding:3px;">
+                <ul style="border-radius:10px; background-color: rgb(36, 35, 35); padding: 3px;">
                     <a class="nav-link" routerLink="/misAnimales">Tus animales</a>
                     <a class="nav-link" (click)="doLogout()" routerLink='.' style=" text-align: center;">Logout</a>
+                    <p *ngIf="(perfil.rol)=='admin'"><a class="nav-link"href="/panelAdmin">Panel de administrador</a></p>
                     </ul>
                         
             </li>
            
             <li class="nav-item">
                 <img src={{perfil.foto}} id="fotoP">
-                <p style="padding-top:5px;"*ngIf="(perfil.email)=='ad@ad.ad'"><a href="/panelAdmin">Panel de ADMINISTRACIÓN</a></p>
+                
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink="/perfil" id="an">{{perfil.nombre}}</a>

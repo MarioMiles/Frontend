@@ -238,7 +238,7 @@ confirmar(id:number, nombre:string, tipoAni:string) {
     this.comenzarAdopcion(id)
   }
 }
-filtrarPorTipo(tipoAni:String):void{
+/*filtrarPorTipo(tipoAni:String):void{
   this.formTipo.controls['tipoAni'].setValue(tipoAni);
   this.servicioMascotas.filtrarPorTipo(this.formTipo.value).subscribe(
     respuesta=>{
@@ -246,7 +246,7 @@ filtrarPorTipo(tipoAni:String):void{
       this.mascota=respuesta;
     }
   )
-}
+}*/
 obtenerUsuario(): void{
   this.servicioUsuario.listarUsuarios().subscribe(
     respuesta => {
@@ -324,6 +324,28 @@ eliminarSugerencia(id:number):void{
     respuesta=>{
       console.log(respuesta);
       location.reload()
+    }
+  )
+}
+darAdmin(id:number):void{
+  
+  this.servicioUsuario.darAdmin(id).subscribe(
+    respuesta=>{
+      this.usuarioSel=respuesta
+      console.log(respuesta);
+      location.reload();
+      
+    }
+  )
+}
+quitarAdmin(id:number):void{
+  
+  this.servicioUsuario.quitarAdmin(id).subscribe(
+    respuesta=>{
+      this.usuarioSel=respuesta
+      console.log(respuesta);
+      location.reload();
+      
     }
   )
 }

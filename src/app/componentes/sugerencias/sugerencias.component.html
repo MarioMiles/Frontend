@@ -1,12 +1,13 @@
 <h1 style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px; text-align: center;">SUGERENCIAS</h1>
 <p style="background-color: green;text-align:center;color:black;font-size:25px;">{{mensaje}}</p>
+<div style="background-color: rgba(0, 0, 0, 0.7); padding: 10px; border: 1px solid wheat;border-radius: 10px; text-align: center;color: white;"><p>Bienvenido a la ventana de sugerencias. Aquí podrás enviar sugerencias o comentarios que ayuden a nuestra página a crecer. Estos llegarán directamente al administrador del sitio</p></div>
 <form style="background-color:black; border:1px solid wheat; border-radius:10px;" [formGroup]="formSugerencia" (submit)="insertarSugerencia()">
     <div class="form">
-      <div style="padding: 10px;"class="form">
+      <div style="padding: 10px;margin-right: 50%;"class="form">
         <label for="nombre">Asunto:</label>
-        <input class="form-control" type="text" placeholder="Asunto" id="asunto" formControlName="asunto">
+        <input class="form-control" type="text" placeholder="Asunto" id="asunto" formControlName="asunto" >
       </div><br>
-      <div style="padding: 10px;" class="form">
+      <div style="padding: 10px;margin-right: 25%;" class="form">
         <label for="apellidos">Mensaje:</label>
         <textarea style="height: 150px;"class="form-control"placeholder="Mensaje" id="mensaje" formControlName="mensaje"></textarea>
       </div>
