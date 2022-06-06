@@ -85,7 +85,7 @@ export class MisAdopcionesComponent implements OnInit {
     )
   }
   confirmar(id:number, nombre:string, tipoAni:string) {
-    if(confirm("Estás a punto de adoptar a la mascota con id: "+id+".Nombre: "+nombre+ ". Tipo de Animal: "+tipoAni)) {
+    if(confirm("Estás a punto de adoptar a "+nombre+ ". Tipo de Animal: "+tipoAni+" ¿Quieres confirmar la adopción?")) {
       this.comenzarAdopcion(id)
     }
   }

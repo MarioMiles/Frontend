@@ -75,5 +75,8 @@ export class UserService {
   quitarAdmin(id:number):Observable<any>{
     return this.http.put(url+"user/"+ id, id)
   }
+  comprobarUsuarioPorId(id:number):Observable<any>{
+    return this.http.get(url+"id/"+id)
+  }
   
 }

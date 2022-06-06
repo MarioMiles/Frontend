@@ -7,9 +7,9 @@
 
     <h3 style="text-ALIGN:CENTER;">TODOS LOS ANIMALES</h3>
     <div style="text-align:center;padding: 10px;">
-      <button style="background-color:green;" (click)="obtenerTodas()">Ver Mascotas</button>
-      <button (click)="vaciarMascotas()">Ocultar Mascotas</button>
-      <button style="background-color: rgb(255, 208, 0);"><a style="color:black" routerLink="/anuncio">Añade a tu
+      <button class="buttonCon"(click)="obtenerTodas()">Ver Mascotas</button>
+      <button class="buttonCan"(click)="vaciarMascotas()">Ocultar Mascotas</button>
+      <button class="buttonNeu"><a style="text-decoration: none;"routerLink="/anuncio">Añade a tu
           mascota</a></button>
     </div>
 
@@ -36,8 +36,8 @@
     </div>
 
 
-    <button (click)='eliminarMascota(mascota.id)' style="margin-bottom: 25px;">Eliminar</button>
-    <button (click)='mostrarEditar=!mostrarEditar' style="background-color: yellow;">Editar mascota</button>
+    <button (click)='eliminarMascota(mascota.id)' class="buttonCan" style="margin-bottom: 25px;">Eliminar</button>
+    <button (click)='mostrarEditar=!mostrarEditar' class="buttonNeu">Editar mascota</button>
 
 
 
@@ -86,13 +86,13 @@
   <div style="background-color:black; border:1px solid wheat; border-radius:10px; margin-bottom: 50px;">
     <div style="text-align: center;padding: 10px;">
       <h3 style="text-align: center;">LISTA DE USUARIOS</h3>
-      <button style=" background-color:green;" (click)="obtenerUsuario()">Ver Usuarios</button>
-      <button (click)="ocultarUsuarios()">Ocultar Usuarios</button>
+      <button class="buttonCon" (click)="obtenerUsuario()">Ver Usuarios</button>
+      <button class="buttonCan"(click)="ocultarUsuarios()">Ocultar Usuarios</button>
 
 
 
       <li style="color: rgb(255, 255, 255); text-align:left ;" (click)='usuarioSel = user'
-        *ngFor='let user of usuarios'>{{user.nombre}}, {{user.email}}</li>
+        *ngFor='let user of usuarios'>{{user.id}}, {{user.email}}</li>
 
       <div *ngIf='usuarioSel' style="border: 1px solid black;">
 
@@ -108,6 +108,9 @@
    
     
         <p class="card-text"><img style="max-width: 250px;min-width:200px;border:1px solid wheat; border-radius: 10px;"src={{usuarioSel.foto}}></p>
+      
+        <p class="card-text">ID de Usuario:</p>
+          {{usuarioSel.id}}
       </div>
         <button (click)="darAdmin(usuarioSel.id)">Hacer administrador</button>
         <button (click)="quitarAdmin(usuarioSel.id)">Quitar administrador</button>
@@ -125,22 +128,24 @@
   class="container">
   <h3 style="text-align: center;">SUGERENCIAS Y COMENTARIOS</h3>
   <div style="text-align: center;padding:10px;">
-    <button style="background-color:green;" (click)="verSugerencias()">Ver sugerencias</button>
-    <button (click)="ocultarSugerencias()">Ocultar sugerencias</button>
+    <button class="buttonCon" (click)="verSugerencias()">Ver sugerencias</button>
+    <button class="buttonCan"(click)="ocultarSugerencias()">Ocultar sugerencias</button>
   </div>
+  
   <div *ngFor="let sugerencia of sugerencias;">
-
     <div class="mensaje"
       style="background-color:burlywood ; border:1px solid wheat; border-radius: 10px; margin: 10px; padding: 20px; color: black;">
-      <li><b>Asunto: </b>{{sugerencia.asunto}}<br><b style="padding-left: 20px;">Mensaje:</b>
-        {{sugerencia.mensaje}}<br><b style="padding-left: 20px;">Usuario: </b>{{sugerencia.idUsu}}</li>
+      <b style="padding-left: 20px;">Asunto: </b>{{sugerencia.asunto}}<br><b style="padding-left: 20px;">Mensaje:</b>
+        {{sugerencia.mensaje}}<br><b style="padding-left: 20px;"> </b><b>Id de usuario:</b>{{sugerencia.idUsu}} 
+  
       <br>
       <div class="form-group col-md-6"></div>
       <button class="btn btn-primary btn-block" (click)="eliminarSugerencia(sugerencia.id)">Eliminar</button>
     </div>
-
   </div>
+
 </div>
+
 </div>
 
 

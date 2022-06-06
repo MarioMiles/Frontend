@@ -30,13 +30,13 @@
                 <h4 class="card-title" style="font-size:18px;">Foto: </h4>
                 <p class="card-text"><img src={{mascotaSel.foto}} style="max-width:180px;margin-bottom: 20px; border: 1px solid wheat; margin-right: 10px;"></p>
                 <ng-template [ngIf]='fnLogged()' [ngIfElse]='salir'>
-                <button type=button style="background-color: green;" (click)="confirmar(mascotaSel.id, mascotaSel.nombre, mascotaSel.tipoAni)">Adoptar</button>
+                <button class="buttonCon" type=button (click)="confirmar(mascotaSel.id, mascotaSel.nombre, mascotaSel.tipoAni)">Adoptar</button>
               </ng-template>
               <ng-template #salir>
                 <p style="width: 200px;">Debes estar logeado para poder adoptar</p>
                 <p style="width: 200px;"><a href="/login">Inicia sesión</a></p>
               </ng-template>
-              <button *ngIf="(perfil.rol)=='admin'" (click)="eliminarMascota(mascota.id)">Eliminar</button>
+              <button class="buttonCan" *ngIf="(perfil.rol)=='admin'" (click)="eliminarMascota(mascota.id)">Eliminar</button>
 
             
         

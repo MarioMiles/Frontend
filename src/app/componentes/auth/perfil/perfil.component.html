@@ -15,12 +15,12 @@
         <span style="color: wheat;">Foto:</span><br><img src="{{perfil.foto}}" id="fotoP"><br><br>
         <p>Cambiar foto de perfil:</p>
         <input type="file" (change)='tengoFoto($event)'>
-        <button type="button"style="background-color: blue;"(click)='subirFoto()'>Subir imagen de perfil</button>
+        <button type="button"(click)='subirFoto()'>Subir imagen de perfil</button>
       
         </div>
         
-        <button style="background-color: yellow;"(click)='mostrarEditar=!mostrarEditar'>Editar usuario</button>
-        <button (click)='mostrarEliminar=!mostrarEliminar'>Eliminar usuario</button>
+        <button class="buttonNeu"(click)='mostrarEditar=!mostrarEditar'>Editar usuario</button>
+        <button class="buttonCan" (click)='mostrarEliminar=!mostrarEliminar'>Eliminar usuario</button>
     </div>
 </div>
 <div class="card" *ngIf='mostrarEditar'>

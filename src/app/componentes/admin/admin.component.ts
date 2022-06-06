@@ -56,6 +56,7 @@ export class AdminComponent implements OnInit {
   tipoAni:string
   id:number
   foto: File 
+  usuarioId:User
 
   usuarios: User[]
   mostrarEditar: boolean = false
@@ -346,6 +347,14 @@ quitarAdmin(id:number):void{
       console.log(respuesta);
       location.reload();
       
+    }
+  )
+}
+verUsuarioPorId(id:number):void{
+  this.servicioUsuario.comprobarUsuarioPorId(id).subscribe(
+    respuesta=>{
+      console.log(respuesta)
+      this.usuarioId=respuesta
     }
   )
 }
