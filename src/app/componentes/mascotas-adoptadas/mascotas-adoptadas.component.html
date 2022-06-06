@@ -1,0 +1,29 @@
+<div id="header">
+  
+    <p style="font-family:Verdana, Geneva, Tahoma, sans-serif; color: wheat;">Bienvenid@ a la ventana de adoptados, aquí podrá ver las mascotas a las que ha accedido a adoptar</p>
+ 
+    <div class="container" *ngFor="let mascota of mascota;">
+      <div id="columnas" style="margin-top: 30px">
+          
+            <h3>{{mascota.nombre}}</h3>
+            <li>Tipo de animal: {{mascota.tipoAni}}</li>
+            <li>Peso(en Kg): {{mascota.peso}}</li>
+            <li>Adoptado: {{mascota.adoptado}}</li>
+            <img class="fotoMascota"src="{{mascota.foto}}"><br>
+        
+            <br>
+            
+          </div>
+          
+          
+         
+            
+            
+         
+            
+       
+    
+      
+        
+    
+    </div>

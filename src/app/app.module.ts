@@ -30,6 +30,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.component';
 import { AdminComponent } from './componentes/admin/admin.component';
 import { SugerenciasComponent } from './componentes/sugerencias/sugerencias.component';
+import { MascotasAdoptadasComponent } from './componentes/mascotas-adoptadas/mascotas-adoptadas.component';
 
 
 
@@ -61,7 +62,8 @@ import { SugerenciasComponent } from './componentes/sugerencias/sugerencias.comp
     FooterComponent,
     LoginAdminComponent,
     AdminComponent,
-    SugerenciasComponent
+    SugerenciasComponent,
+    MascotasAdoptadasComponent
     
    
     

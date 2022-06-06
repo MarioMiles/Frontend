@@ -1,17 +1,17 @@
 
- 
-<h1 style="color: wheat; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; background-color: rgb(24, 17, 5); padding-left: 200px;">Todos nuestros animales</h1>
-
+ <div style="text-align: center;font-size: 50em;">
+<h1 style="color: wheat; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; background-color: rgb(24, 17, 5);">Todos nuestros animales</h1>
+</div>
 <div class="carta">
   <div class="row">
     <div class="col-sm-6" id="col1">
+     
+     
     <ul>
       <li style="color: black; margin: 10px;"(click)='mascotaSel = mascota' *ngFor='let mascota of mascota'><b>{{mascota.nombre}}.</b> <br> Tipo de animal: <b>{{mascota.tipoAni}}.</b> <br> Peso: <b><b>{{mascota.peso}}.</b></b></li>
       
     </ul>
     </div>
-  
-    
     <div *ngIf='mascotaSel' style="background-color: rgb(29, 21, 7); margin: 10px; max-height: 200px;border-radius: 10px; height: fit-content; max-height: fit-content; margin-top: 50px;">
       
         <div class="container" style="background-color: rgb(24, 17, 5); border-radius: 10px;">
@@ -36,7 +36,7 @@
                 <p style="width: 200px;">Debes estar logeado para poder adoptar</p>
                 <p style="width: 200px;"><a href="/login">Inicia sesión</a></p>
               </ng-template>
-              <button class="buttonCan" *ngIf="(perfil.rol)=='admin'" (click)="eliminarMascota(mascota.id)">Eliminar</button>
+              <button class="buttonCan" *ngIf="(perfil.rol)=='admin'" (click)="eliminarMascota(mascotaSel.id)">Eliminar</button>
 
             
         
@@ -47,6 +47,10 @@
             </div>
             
             </div>
+  
+    
+  
+
     </div>
     
     </div>

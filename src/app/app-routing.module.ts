@@ -19,6 +19,7 @@ import { ConfirmarAdopcionComponent } from './componentes/confirmar-adopcion/con
 import { LoginAdminComponent } from './componentes/auth/login-admin/login-admin.component';
 import { AdminComponent } from './componentes/admin/admin.component';
 import { SugerenciasComponent } from './componentes/sugerencias/sugerencias.component';
+import { MascotasAdoptadasComponent } from './componentes/mascotas-adoptadas/mascotas-adoptadas.component';
 
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: "loginAdmin", component:LoginAdminComponent},
   {path: "panelAdmin", component:AdminComponent},
   {path: "sugerencias", component: SugerenciasComponent},
+  {path: "adoptadas", component: MascotasAdoptadasComponent},
  
 
   {path: "**", component: HomeComponent}

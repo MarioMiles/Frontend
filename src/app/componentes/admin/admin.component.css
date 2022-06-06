@@ -43,3 +43,9 @@
      
  }
 
+a{
+    color:black
+}
+a:hover{
+    color: rgb(51, 134, 243);
+}

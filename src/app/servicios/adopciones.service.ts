@@ -18,4 +18,7 @@ export class AdopcionesService {
     return this.http.post(url+'confirmar/', id)
     
   }
+  borrarAdopcion(id:number):Observable<any>{
+    return this.http.delete(url+'confirmar/'+ id)
+  }
 }

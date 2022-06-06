@@ -53,11 +53,17 @@ export class MascotasService {
    
     return this.http.post(url+"confirmar/"+ id, id)
   }
-  filtrarPorTipo():Observable<any>{
+  filtrarPorTipo(tipoAni:string):Observable<any>{
    
-    return this.http.get(url+"filtrar/")
+    return this.http.get(url+"filtrar/"+tipoAni)
   }
   obtenerTodas():Observable<any>{
     return this.http.get(url+'todas/')
+  }
+  obtenerAdoptadas():Observable<any>{
+    return this.http.get(url+"adoptadas/")
+  }
+  cancelarAdopcion(id:number):Observable<any>{
+    return this.http.put(url+"cancelar/",id)
   }
 }

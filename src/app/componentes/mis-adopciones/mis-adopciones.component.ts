@@ -8,6 +8,7 @@ import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormBuilder } from '@angular/forms';
 import { AdopcionesService } from 'src/app/servicios/adopciones.service'
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-mis-adopciones',
@@ -19,14 +20,16 @@ export class MisAdopcionesComponent implements OnInit {
   adminLogged = this.servicioUsuario.adminIsLogged
   constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder,private servicioAdopciones:AdopcionesService) { }
   formTipo= this.fb.group({
-    tipoAni:[''],
+    tipoAni:''
     
     
     
   })
+ 
   mensaje:string;
   perfil: User = {}
   mascota: Mascota[]=[];
+  mascotaFiltrada: Mascota[]=[];
 
   mascotaSel: Mascota;
   ngOnInit(): void {
@@ -106,6 +109,28 @@ export class MisAdopcionesComponent implements OnInit {
         
       },
       error => console.log(error)
+    )
+  }
+  filtrar(tipoAni:string):void{
+    const formData = new FormData()
+  this.formTipo.controls['tipoAni'].setValue(tipoAni);
+console.log(tipoAni)
+    this.servicioMascotas.filtrarPorTipo(tipoAni).subscribe(
+     
+      respuesta => {
+        console.log(respuesta)
+        this.mascotaFiltrada=respuesta;
+      }
+    )
+  }
+  eliminarMascota(id:number): void{
+    console.log(id)
+    this.servicioMascotas.eliminarMascota(id).subscribe(
+      respuesta => {console.log(respuesta)
+    
+      location.reload()
+      },
+      error => {console.log(error)}
     )
   }
  
