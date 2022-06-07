@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Note } from '../clases/note';
 import { Sugerencia } from '../clases/sugerencia';
 
-const url = 'http://localhost/backendphp/sugerencias/'
+const url = 'https://backrefugiovirtual.herokuapp.com/sugerencias/'
 
 @Injectable({
   providedIn: 'root'

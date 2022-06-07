@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Mascota } from  '../clases/mascota';
 
-const url = 'http://localhost/backendphp/mascotas/'
+const url = 'http://https://backrefugiovirtual.herokuapp.com/mascotas/'
 @Injectable({
   providedIn: 'root'
 })
