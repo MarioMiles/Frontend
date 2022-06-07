@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, FormsModule, Validators } from '@angular/forms';
 import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
 
 @Component({
@@ -8,13 +8,13 @@ import { dniValido, telefonoValido } from 'src/app/validaciones/validaciones';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  formRegister: FormGroup = new FormGroup({
-    nombre: new FormControl('',[Validators.required,Validators.minLength(3)]),
-    apellidos: new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required]),
-    email: new FormControl('',[Validators.required, Validators.email]),
-    dni: new FormControl('',[Validators.required, dniValido()]),
-    telefono: new FormControl(undefined, [Validators.required, telefonoValido()])
+  formRegister: UntypedFormGroup = new UntypedFormGroup({
+    nombre: new UntypedFormControl('',[Validators.required,Validators.minLength(3)]),
+    apellidos: new UntypedFormControl('',[Validators.required]),
+    password: new UntypedFormControl('',[Validators.required]),
+    email: new UntypedFormControl('',[Validators.required, Validators.email]),
+    dni: new UntypedFormControl('',[Validators.required, dniValido()]),
+    telefono: new UntypedFormControl(undefined, [Validators.required, telefonoValido()])
   })
   formRegister2 = this.fb.group({
     nombre: ['',[Validators.required,Validators.minLength(3)]],
@@ -25,7 +25,7 @@ export class RegistroComponent implements OnInit {
     telefono: [undefined, [Validators.required]]
   })
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
   }

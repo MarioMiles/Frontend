@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { User } from 'src/app/clases/user';
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   })
   mensaje: string=''
   data: Object = {};
-  constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
+  constructor(private fb:UntypedFormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
       if (this.servicioUsuario.isLogged()){

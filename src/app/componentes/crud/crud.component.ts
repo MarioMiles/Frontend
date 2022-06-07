@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Note } from 'src/app/clases/note';
 import { NotasService } from 'src/app/servicios/notas.service';
 
@@ -13,10 +13,10 @@ export class CrudComponent implements OnInit {
   temporizador: any = null
   busqueda: string
   notaSeleccionada: Note = new Note
-  formNuevo: FormGroup = new FormGroup({
-    id: new FormControl(),
-    titulo: new FormControl('',[Validators.required]),
-    contenido: new FormControl('',[Validators.required])
+  formNuevo: UntypedFormGroup = new UntypedFormGroup({
+    id: new UntypedFormControl(),
+    titulo: new UntypedFormControl('',[Validators.required]),
+    contenido: new UntypedFormControl('',[Validators.required])
   })
   notas: Note[]=[]
   notaNueva: Note = new Note

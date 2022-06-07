@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
@@ -30,7 +30,7 @@ export class AnuncioComponent implements OnInit {
     id:['']
     
   })
-  constructor(private servicioMascota: MascotasService, private fb:FormBuilder, private irHacia:Router, private servicioUsuario: UserService) { }
+  constructor(private servicioMascota: MascotasService, private fb:UntypedFormBuilder, private irHacia:Router, private servicioUsuario: UserService) { }
 
 
   ngOnInit(): void {

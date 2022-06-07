@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 
@@ -15,7 +15,7 @@ export class LoginAdminComponent implements OnInit {
     email:['', [Validators.required, Validators.email]],
     rol:['']
   })
-  constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
+  constructor(private fb:UntypedFormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
     

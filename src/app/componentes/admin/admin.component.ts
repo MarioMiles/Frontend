@@ -6,7 +6,7 @@ import { Mascota } from 'src/app/clases/mascota';
 import { User } from 'src/app/clases/user';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { UserService } from 'src/app/servicios/user.service';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { Sugerencia } from 'src/app/clases/sugerencia';
 import { SugerenciasService } from 'src/app/servicios/sugerencias.service';
 
@@ -50,7 +50,7 @@ export class AdminComponent implements OnInit {
   })
   adminLogged = this.servicioUsuario.adminIsLogged
   fnLogged = this.servicioUsuario.isLogged
-  constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private ServicioSugerencias: SugerenciasService, private fb:FormBuilder,) { }
+  constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private ServicioSugerencias: SugerenciasService, private fb:UntypedFormBuilder,) { }
   usuarioSel:User
   mensaje: string=''
   tipoAni:string

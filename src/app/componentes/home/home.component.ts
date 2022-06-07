@@ -3,7 +3,7 @@ import { Usuario } from 'src/app/clases/usuario';
 import { UserService } from 'src/app/servicios/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { exit } from 'process';
 @Component({
   selector: 'app-home',
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
  
   fnLogged = this.servicioUsuario.isLogged
-  constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router) { }
+  constructor(private servicioUsuario:UserService, private fb:UntypedFormBuilder, private irHacia:Router) { }
 
   ngOnInit(): void {
   

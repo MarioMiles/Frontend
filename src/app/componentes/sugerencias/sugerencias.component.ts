@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SugerenciasService } from 'src/app/servicios/sugerencias.service';
 import { Sugerencia } from 'src/app/clases/sugerencia';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sugerencias',
@@ -17,7 +17,7 @@ export class SugerenciasComponent implements OnInit {
     idUsu:['']
   })
   sugerencia:Sugerencia
-  constructor(private servicioSugerencias:SugerenciasService, private fb:FormBuilder) { }
+  constructor(private servicioSugerencias:SugerenciasService, private fb:UntypedFormBuilder) { }
 
   ngOnInit(): void {
   }

@@ -5,7 +5,7 @@ import { Mascota } from 'src/app/clases/mascota';
 import { User } from 'src/app/clases/user';
 import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { UserService } from 'src/app/servicios/user.service';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { identifierName } from '@angular/compiler';
 import { AdopcionesService } from 'src/app/servicios/adopciones.service'
 @Component({
@@ -18,7 +18,7 @@ export class MascotasAdoptadasComponent implements OnInit {
   mascota: Mascota[]=[];
   masc:Mascota={}
 
-  constructor(private servicioUsuario:UserService, private servicioAdopciones:AdopcionesService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder ) { }
+  constructor(private servicioUsuario:UserService, private servicioAdopciones:AdopcionesService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:UntypedFormBuilder ) { }
 
   ngOnInit(): void {
     this.obtenerAdoptadas()

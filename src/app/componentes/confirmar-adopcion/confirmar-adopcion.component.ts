@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Mascota } from 'src/app/clases/mascota';
 import { User } from 'src/app/clases/user';
@@ -13,7 +13,7 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class ConfirmarAdopcionComponent implements OnInit {
 mascota:Mascota = {}
-  constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:FormBuilder, private servicioAdopciones:AdopcionesService) { }
+  constructor(private servicioUsuario:UserService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:UntypedFormBuilder, private servicioAdopciones:AdopcionesService) { }
 
   ngOnInit(): void {
     

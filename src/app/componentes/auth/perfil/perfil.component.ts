@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { UserService } from 'src/app/servicios/user.service';
@@ -27,7 +27,7 @@ export class PerfilComponent implements OnInit {
   formImagen = this.fb.group({
     foto: ['', Validators.required]
   })
-  constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router) { }
+  constructor(private servicioUsuario:UserService, private fb:UntypedFormBuilder, private irHacia:Router) { }
 
   ngOnInit(): void {
     this.cargarPerfil()
