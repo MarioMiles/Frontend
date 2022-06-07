@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://https://backrefugiovirtual.herokuapp.com/",
+            "url": "https://backrefugiovirtual.herokuapp.com/",
             "webRoot": "${workspaceFolder}"
         }
     ]

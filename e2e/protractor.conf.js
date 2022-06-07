@@ -17,7 +17,7 @@ exports.config = {
   },
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false,
-  baseUrl: 'http://https://backrefugiovirtual.herokuapp.com/0/',
+  baseUrl: 'https://backrefugiovirtual.herokuapp.com/0/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
