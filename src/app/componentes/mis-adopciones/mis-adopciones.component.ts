@@ -8,7 +8,7 @@ import { MascotasService } from 'src/app/servicios/mascotas.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { UntypedFormBuilder } from '@angular/forms';
 import { AdopcionesService } from 'src/app/servicios/adopciones.service'
-import { stringify } from 'querystring';
+i
 
 @Component({
   selector: 'app-mis-adopciones',

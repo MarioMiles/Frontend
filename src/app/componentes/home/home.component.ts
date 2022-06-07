@@ -4,7 +4,7 @@ import { UserService } from 'src/app/servicios/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
-import { exit } from 'process';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
