@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { accesoUsuario, User } from '../clases/user';
-import { Usuario } from '../clases/usuario';
-const url = 'https://backrefugiovirtual.herokuapp.com/user/'
+
+const url = 'https://backrefugiovirtual.herokuapp.com/user/';
 @Injectable({
   providedIn: 'root'
 })
