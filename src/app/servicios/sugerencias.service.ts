@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Note } from '../clases/note';
 import { Sugerencia } from '../clases/sugerencia';
 
-const url = 'https://backrefugiovirtual.herokuapp.com/sugerencias/'
+const url = 'https://mariomiles.web31.ovh/sugerencias/'
 
 @Injectable({
   providedIn: 'root'
