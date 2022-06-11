@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "https://mariomiles.web23.ovh/",
+        "target": "http://mariomiles.web23.ovh/",
         "secure": false,
         "logLevel": "debug"
     }
