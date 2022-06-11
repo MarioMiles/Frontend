@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { accesoUsuario, User } from '../clases/user';
 
-const url = 'https://mariomiles.web23.ovh/user/';
+const url = 'http://mariomiles.web23.ovh/user/';
 @Injectable({
   providedIn: 'root'
 })
