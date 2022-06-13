@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Note } from '../clases/note';
 import { Sugerencia } from '../clases/sugerencia';
 
-const url = 'http://mariomiles.web23.ovh/sugerencias/'
+const url = 'https://mariomiles.web23.ovh/sugerencias/'
 
 @Injectable({
   providedIn: 'root'
