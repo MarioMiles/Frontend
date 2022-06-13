@@ -135,10 +135,7 @@
 	font-size: 14px;
 	font-family: "Roboto";
 }
-a:hover {
-	background-color: rgb(223, 193, 61);
-	color: black;
-  }
+
   a{
 	 margin-left: 40px;
 	  border-radius: 20px;
