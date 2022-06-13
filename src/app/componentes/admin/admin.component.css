@@ -5,8 +5,8 @@
     margin-bottom: 50px;
 }
 .fotoMascota{
-    max-width: 150px;
-    max-height: 300px;
+   
+    max-height: fit-content;
     border: 2px solid wheat;
 }
 #columnas{
