@@ -6,7 +6,7 @@
 }
 .fotoMascota{
    
-    max-height: fit-content;
+    max-height: 300px;
     border: 2px solid wheat;
 }
 #columnas{
