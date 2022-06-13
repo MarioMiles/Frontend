@@ -40,19 +40,6 @@ export class MascotasAdoptadasComponent implements OnInit {
       }
     )
   }
-  obtenerMascotas():void{
-  this.servicioMascotas.obtenerMascota().subscribe(
-    respuesta=>{
-      console.log(respuesta);
-      this.mascota=respuesta;
-      
-    }, error => {
-      console.log(error)
-      this.mensaje=error.error.error
-    }
-    
-    
-  )
-}
+
 
 }
