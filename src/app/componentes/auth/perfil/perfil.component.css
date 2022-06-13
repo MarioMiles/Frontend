@@ -4,8 +4,8 @@
     column-rule:4px;
  }
  #fotoP{
-     max-height: 300px;
-     min-width: 250px;
+     max-height: 200px;
+     min-width: 50px;
      border:1px solid wheat;
  }
 #card{
