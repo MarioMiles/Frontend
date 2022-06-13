@@ -21,7 +21,7 @@ export class MascotasAdoptadasComponent implements OnInit {
   constructor(private servicioUsuario:UserService, private servicioAdopciones:AdopcionesService, private servicioMascotas: MascotasService, private irHacia:Router, private fb:UntypedFormBuilder ) { }
 
   ngOnInit(): void {
-    this.obtenerMascotas()
+    this.obtenerAdoptadas()
   }
   obtenerAdoptadas():void{
     this.servicioMascotas.obtenerAdoptadas().subscribe(
