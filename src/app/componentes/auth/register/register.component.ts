@@ -38,9 +38,9 @@ submit(): void{
         this.servicioUsuario.guardarToken(respuesta)
         this.irHacia.navigate(['/perfil'])
       },
-      
+      this.error=mensaje,
       error => console.log(error),
-      location.reload,
+   
       
     )
   }
