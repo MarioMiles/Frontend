@@ -1,27 +1,5 @@
-# Proyecto
+Refugio Virtual es un proyecto web realizado en Visual Studio con angular en su apartado front y PHP en su apartado back. Refugio Virtual será una web con usuarios, en la que podrás registrarte como nuevo usuario y acceder a las funciones de la web. Después de registrarte, podrás ver todas las mascotas disponibles para ser adoptadas. Si adoptas alguna, desaparecerá de la ventana de animales disponibles y se trasladará a la pestaña "Mascotas adoptadas" de tu perfil. Si deseas cancelar la adopción, por favor házselo saber a los administradores a través de la pestaña "Sugerencias". En esta pestaña también podrás enviar todo tipo de mensajes con peticiones o sugerencias que luego serán leídas por el administrador del sitio.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+El administrador podrá tener acceso a las mascotas, usuarios y sugerencias. Con las mascotas podrá acceder a sus datos, y si hay algún error, eliminarla. Podrá dar/quitar permisos de administrador a los demás usuarios y podrá leer y eliminar sugerencias, todo esto desde el Panel de administrador. Enlace: https://refugiovirtual-six.vercel.app/home
+MEMORIA:
+https://drive.google.com/file/d/1LTOW3svCnMRxVWPzuFAszsJ9IWwf4FVM/view?usp=sharing
