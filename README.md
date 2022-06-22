@@ -2,4 +2,4 @@ Refugio Virtual es un proyecto web realizado en Visual Studio con angular en su 
 
 El administrador podrá tener acceso a las mascotas, usuarios y sugerencias. Con las mascotas podrá acceder a sus datos, y si hay algún error, eliminarla. Podrá dar/quitar permisos de administrador a los demás usuarios y podrá leer y eliminar sugerencias, todo esto desde el Panel de administrador. Enlace: https://refugiovirtual-six.vercel.app/home
 MEMORIA:
-https://github.com/MarioMiles/Frontend/blob/master/GESTI%C3%93N%20DE%20DEPARTAMENTOS.pdf
+https://github.com/MarioMiles/Frontend/blob/master/MEMORIA%20PROYECTO%20FINAL.pdf
